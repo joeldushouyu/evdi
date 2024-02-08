@@ -1,0 +1,720 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	//
+$(NAME)	pyevdi/Makefile	/^$(NAME): $(OBJS)$/;"	t
+%.o	library/Makefile	/^%.o: %.c $(DEPS)$/;"	t
+%.o	pyevdi/Makefile	/^%.o: %.cpp$/;"	t
+AVAILABLE	library/evdi_lib.h	/^	AVAILABLE,$/;"	e	enum:evdi_device_status
+BUFFER_H	pyevdi/Buffer.h	/^#define BUFFER_H$/;"	d
+Buffer	pyevdi/Buffer.cpp	/^Buffer::Buffer(evdi_mode mode, evdi_handle evdiHandle)$/;"	f	class:Buffer
+Buffer	pyevdi/Buffer.h	/^class Buffer : public std::enable_shared_from_this<Buffer> {$/;"	c
+CARD_H	pyevdi/Card.h	/^#define CARD_H$/;"	d
+CFLAGS	library/Makefile	/^CFLAGS := -I..\/module -std=gnu99 -fPIC -D_FILE_OFFSET_BITS=64 $(CFLAGS) $$($(PKG_CONFIG) --cfla/;"	m
+CONFIG_DRM_EVDI	module/Makefile	/^CONFIG_DRM_EVDI := m$/;"	m
+CP	library/Makefile	/^CP ?= cp$/;"	m
+CP	module/Makefile	/^CP ?= cp$/;"	m
+CP	pyevdi/Makefile	/^CP ?= cp$/;"	m
+CXXFLAGS	pyevdi/Makefile	/^CXXFLAGS := $(INCL_DIRS) -std=c++20 -fPIC -fvisibility=hidden $(CXXFLAGS)$/;"	m
+Card	pyevdi/Card.cpp	/^Card::Card(int device)$/;"	f	class:Card
+Card	pyevdi/Card.h	/^class Card {$/;"	c
+DDCCI_BUFFER_SIZE	module/evdi_drm.h	/^#define DDCCI_BUFFER_SIZE /;"	d
+DDCCI_TIMEOUT_MS	module/evdi_painter.c	/^#define DDCCI_TIMEOUT_MS /;"	d	file:
+DEPMOD	module/Makefile	/^	DEPMOD := \/sbin\/depmod -a$/;"	m
+DEPMOD	module/Makefile	/^	DEPMOD := true$/;"	m
+DEPS	library/Makefile	/^DEPS = evdi_ioctl.h$/;"	m
+DKMS	module/Makefile	/^DKMS ?= dkms$/;"	m
+DRIVER_DATE	module/evdi_platform_drv.h	/^#define DRIVER_DATE /;"	d
+DRIVER_DESC	module/evdi_platform_drv.h	/^#define DRIVER_DESC /;"	d
+DRIVER_MAJOR	module/evdi_platform_drv.h	/^#define DRIVER_MAJOR /;"	d
+DRIVER_MINOR	module/evdi_platform_drv.h	/^#define DRIVER_MINOR /;"	d
+DRIVER_NAME	module/evdi_platform_drv.h	/^#define DRIVER_NAME /;"	d
+DRIVER_PATCH	module/evdi_platform_drv.h	/^#define DRIVER_PATCH /;"	d
+DRM_EVDI_CONNECT	module/evdi_drm.h	/^#define DRM_EVDI_CONNECT /;"	d
+DRM_EVDI_DDCCI_RESPONSE	module/evdi_drm.h	/^#define DRM_EVDI_DDCCI_RESPONSE /;"	d
+DRM_EVDI_ENABLE_CURSOR_EVENTS	module/evdi_drm.h	/^#define DRM_EVDI_ENABLE_CURSOR_EVENTS /;"	d
+DRM_EVDI_EVENT_CRTC_STATE	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_CRTC_STATE /;"	d
+DRM_EVDI_EVENT_CURSOR_MOVE	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_CURSOR_MOVE /;"	d
+DRM_EVDI_EVENT_CURSOR_SET	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_CURSOR_SET /;"	d
+DRM_EVDI_EVENT_DDCCI_DATA	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_DDCCI_DATA /;"	d
+DRM_EVDI_EVENT_DPMS	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_DPMS /;"	d
+DRM_EVDI_EVENT_MODE_CHANGED	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_MODE_CHANGED /;"	d
+DRM_EVDI_EVENT_UPDATE_READY	module/evdi_drm.h	/^#define DRM_EVDI_EVENT_UPDATE_READY /;"	d
+DRM_EVDI_GRABPIX	module/evdi_drm.h	/^#define DRM_EVDI_GRABPIX /;"	d
+DRM_EVDI_REQUEST_UPDATE	module/evdi_drm.h	/^#define DRM_EVDI_REQUEST_UPDATE /;"	d
+DRM_IOCTL_EVDI_CONNECT	module/evdi_drm.h	/^#define DRM_IOCTL_EVDI_CONNECT /;"	d
+DRM_IOCTL_EVDI_DDCCI_RESPONSE	module/evdi_drm.h	/^#define DRM_IOCTL_EVDI_DDCCI_RESPONSE /;"	d
+DRM_IOCTL_EVDI_ENABLE_CURSOR_EVENTS	module/evdi_drm.h	/^#define DRM_IOCTL_EVDI_ENABLE_CURSOR_EVENTS /;"	d
+DRM_IOCTL_EVDI_GRABPIX	module/evdi_drm.h	/^#define DRM_IOCTL_EVDI_GRABPIX /;"	d
+DRM_IOCTL_EVDI_REQUEST_UPDATE	module/evdi_drm.h	/^#define DRM_IOCTL_EVDI_REQUEST_UPDATE /;"	d
+EDID_EXT_BLOCK_SIZE	module/evdi_painter.c	/^#define EDID_EXT_BLOCK_SIZE /;"	d	file:
+EL8	module/Makefile	/^EL8 := $(shell cat \/etc\/redhat-release 2>\/dev\/null | grep -c " 8." )$/;"	m
+EL8FLAG	module/Makefile	/^EL8FLAG := -DEL8$/;"	m
+EL9	module/Makefile	/^EL9 := $(shell cat \/etc\/redhat-release 2>\/dev\/null | grep -c " 9." )$/;"	m
+EL9FLAG	module/Makefile	/^EL9FLAG := -DEL9$/;"	m
+EVDI_CHECKPT	module/evdi_debug.h	/^#define EVDI_CHECKPT(/;"	d
+EVDI_DEBUG	module/evdi_debug.h	/^#define EVDI_DEBUG(/;"	d
+EVDI_DEBUG_H	module/evdi_debug.h	/^#define EVDI_DEBUG_H$/;"	d
+EVDI_DEVICE_COUNT_MAX	module/evdi_platform_drv.c	/^#define EVDI_DEVICE_COUNT_MAX /;"	d	file:
+EVDI_DRM_UNLOCKED	module/evdi_drm_drv.c	/^#define EVDI_DRM_UNLOCKED /;"	d	file:
+EVDI_DRV_H	module/evdi_drm_drv.h	/^#define EVDI_DRV_H$/;"	d
+EVDI_ENTER	module/evdi_debug.h	/^#define EVDI_ENTER(/;"	d
+EVDI_ERROR	module/evdi_debug.h	/^#define EVDI_ERROR(/;"	d
+EVDI_EXIT	module/evdi_debug.h	/^#define EVDI_EXIT(/;"	d
+EVDI_FATAL	module/evdi_debug.h	/^#define EVDI_FATAL(/;"	d
+EVDI_GRABPIX_MODE_DIRTY	module/evdi_drm.h	/^	EVDI_GRABPIX_MODE_DIRTY = 1,$/;"	e	enum:drm_evdi_grabpix_mode
+EVDI_GRABPIX_MODE_RECTS	module/evdi_drm.h	/^	EVDI_GRABPIX_MODE_RECTS = 0,$/;"	e	enum:drm_evdi_grabpix_mode
+EVDI_I2C_H	module/evdi_i2c.h	/^#define EVDI_I2C_H$/;"	d
+EVDI_INFO	module/evdi_debug.h	/^#define EVDI_INFO(/;"	d
+EVDI_INVALID_DEVICE_INDEX	library/evdi_lib.c	/^#define EVDI_INVALID_DEVICE_INDEX /;"	d	file:
+EVDI_INVALID_HANDLE	library/evdi_lib.h	/^#define EVDI_INVALID_HANDLE /;"	d
+EVDI_LIB_H	library/evdi_lib.h	/^#define EVDI_LIB_H$/;"	d
+EVDI_LOGLEVEL_DEBUG	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_DEBUG /;"	d
+EVDI_LOGLEVEL_ERROR	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_ERROR /;"	d
+EVDI_LOGLEVEL_FATAL	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_FATAL /;"	d
+EVDI_LOGLEVEL_INFO	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_INFO /;"	d
+EVDI_LOGLEVEL_VERBOSE	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_VERBOSE /;"	d
+EVDI_LOGLEVEL_WARN	module/evdi_debug.h	/^#define EVDI_LOGLEVEL_WARN /;"	d
+EVDI_MODULE_COMPATIBILITY_VERSION_MAJOR	library/evdi_lib.c	/^#define EVDI_MODULE_COMPATIBILITY_VERSION_MAJOR /;"	d	file:
+EVDI_MODULE_COMPATIBILITY_VERSION_MINOR	library/evdi_lib.c	/^#define EVDI_MODULE_COMPATIBILITY_VERSION_MINOR /;"	d	file:
+EVDI_MODULE_COMPATIBILITY_VERSION_PATCH	library/evdi_lib.c	/^#define EVDI_MODULE_COMPATIBILITY_VERSION_PATCH /;"	d	file:
+EVDI_PARAMS_H	module/evdi_params.h	/^#define EVDI_PARAMS_H$/;"	d
+EVDI_PRINTK	module/evdi_debug.h	/^#define EVDI_PRINTK(/;"	d
+EVDI_USAGE_LEN	library/evdi_lib.c	/^#define EVDI_USAGE_LEN /;"	d	file:
+EVDI_VERBOSE	module/evdi_debug.h	/^#define EVDI_VERBOSE(/;"	d
+EVDI_WARN	module/evdi_debug.h	/^#define EVDI_WARN(/;"	d
+FLAGS	Makefile	/^FLAGS=-Werror -Wextra -Wall -Wno-error=missing-field-initializers -Werror=sign-compare$/;"	m
+FLAGS_C	Makefile	/^FLAGS_C=$(FLAGS) -Wmissing-prototypes -Wstrict-prototypes -Werror=discarded-qualifiers$/;"	m
+FLAGS_CXX	Makefile	/^FLAGS_CXX=$(FLAGS)$/;"	m
+I2C_ADDRESS_DDCCI	module/evdi_painter.c	/^#define I2C_ADDRESS_DDCCI /;"	d	file:
+INCL_DIRS	pyevdi/Makefile	/^INCL_DIRS := -I..\/library $$(python3 -m pybind11 --includes)$/;"	m
+INSTALL	library/Makefile	/^INSTALL ?= install$/;"	m
+INSTALL	pyevdi/Makefile	/^INSTALL ?= install$/;"	m
+INTEL_IOMMU_DUMMY_DOMAIN	module/evdi_platform_dev.c	/^	#define INTEL_IOMMU_DUMMY_DOMAIN /;"	d	file:
+KBUILD_VERBOSE	module/Makefile	/^KBUILD_VERBOSE ?= 1$/;"	m
+KDIR	module/Makefile	/^	KDIR := \/lib\/modules\/$(KVER)\/build$/;"	m
+KERN_DIR	module/Makefile	/^KERN_DIR := \/lib\/modules\/$(KERNELRELEASE)\/build$/;"	m
+KVER	module/Makefile	/^	KVER := $(shell uname -r)$/;"	m
+LDFLAGS	pyevdi/Makefile	/^LDFLAGS := -L..\/library -Wl,--no-undefined $$(python3-config --ldflags --embed) -shared$/;"	m
+LIBABI	library/Makefile	/^LIBABI := 1$/;"	m
+LIBABI	pyevdi/Makefile	/^LIBABI := 1$/;"	m
+LIBDIR	library/Makefile	/^LIBDIR ?= $(PREFIX)\/lib$/;"	m
+LIBDIR	pyevdi/Makefile	/^LIBDIR ?= $$(python3 -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())/;"	m
+LIBEVDI_VERSION_MAJOR	library/evdi_lib.h	/^#define LIBEVDI_VERSION_MAJOR /;"	d
+LIBEVDI_VERSION_MINOR	library/evdi_lib.h	/^#define LIBEVDI_VERSION_MINOR /;"	d
+LIBEVDI_VERSION_PATCH	library/evdi_lib.h	/^#define LIBEVDI_VERSION_PATCH /;"	d
+LIBS	pyevdi/Makefile	/^LIBS := -levdi$/;"	m
+LIBVER	library/Makefile	/^LIBVER := 1.14.2$/;"	m
+LN	library/Makefile	/^LN ?= ln$/;"	m
+LN	pyevdi/Makefile	/^LN ?= ln$/;"	m
+MAX_DIRTS	library/evdi_lib.c	/^#define MAX_DIRTS /;"	d	file:
+MAX_DIRTS	module/evdi_painter.c	/^#define MAX_DIRTS /;"	d	file:
+MAX_EDID_SIZE	module/evdi_painter.c	/^#define MAX_EDID_SIZE /;"	d	file:
+MAX_EVDI_USB_ADDR	module/evdi_sysfs.c	/^#define MAX_EVDI_USB_ADDR /;"	d	file:
+MODVER	module/Makefile	/^MODVER=1.14.2$/;"	m
+MOD_KERNEL_PATH	module/Makefile	/^MOD_KERNEL_PATH := \/kernel\/drivers\/gpu\/drm\/evdi$/;"	m
+NAME	pyevdi/Makefile	/^NAME := PyEvdi$(NAME_SUFFIX)$/;"	m
+NAME_SUFFIX	pyevdi/Makefile	/^NAME_SUFFIX := $$(python3-config --extension-suffix)$/;"	m
+NOT_PRESENT	library/evdi_lib.h	/^	NOT_PRESENT$/;"	e	enum:evdi_device_status
+OBJS	pyevdi/Makefile	/^OBJS := $(patsubst %.cpp,%.o,$(SRCS))$/;"	m
+PKG_CONFIG	library/Makefile	/^PKG_CONFIG ?= pkg-config$/;"	m
+PREFIX	library/Makefile	/^PREFIX ?= \/usr\/local$/;"	m
+PYBIND11_MODULE	pyevdi/PyEvdi.cpp	/^PYBIND11_MODULE(PyEvdi, m)$/;"	f
+RM	library/Makefile	/^RM ?= rm$/;"	m
+RM	module/Makefile	/^RM ?= rm$/;"	m
+RM	pyevdi/Makefile	/^RM ?= rm$/;"	m
+RPIFLAG	module/Makefile	/^RPIFLAG := -DRPI$/;"	m
+Raspbian	module/Makefile	/^Raspbian := $(shell grep -Eic 'raspb(erry|ian)' \/proc\/cpuinfo \/etc\/os-release 2>\/dev\/null /;"	m
+SRCS	pyevdi/Makefile	/^SRCS := $(wildcard *.cpp)$/;"	m
+UNRECOGNIZED	library/evdi_lib.h	/^	UNRECOGNIZED,$/;"	e	enum:evdi_device_status
+_EVDI_CURSOR_H_	module/evdi_cursor.h	/^#define _EVDI_CURSOR_H_$/;"	d
+_EVDI_PLATFORM_DEV_H_	module/evdi_platform_dev.h	/^#define _EVDI_PLATFORM_DEV_H_$/;"	d
+_EVDI_PLATFORM_DRV_H_	module/evdi_platform_drv.h	/^#define _EVDI_PLATFORM_DRV_H_$/;"	d
+_EVDI_SYSFS_H_	module/evdi_sysfs.h	/^#define _EVDI_SYSFS_H_$/;"	d
+__UAPI_EVDI_DRM_H__	module/evdi_drm.h	/^#define __UAPI_EVDI_DRM_H__$/;"	d
+__anon336c4d870102	pyevdi/PyEvdi.cpp	/^			"id", [](Buffer &self) { return self.buffer.id; })$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870202	pyevdi/PyEvdi.cpp	/^				       [](Buffer &self) {$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870302	pyevdi/PyEvdi.cpp	/^			"width", [](Buffer &self) { return self.buffer.width; })$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870402	pyevdi/PyEvdi.cpp	/^				       [](Buffer &self) {$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870502	pyevdi/PyEvdi.cpp	/^				       [](Buffer &self) {$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870602	pyevdi/PyEvdi.cpp	/^			[](Buffer &self) {$/;"	f	function:PYBIND11_MODULE	file:
+__anon336c4d870702	pyevdi/PyEvdi.cpp	/^		.def_property_readonly("rect_count", [](Buffer &self) {$/;"	f	function:PYBIND11_MODULE	file:
+__read_mostly	module/evdi_params.c	/^unsigned int evdi_loglevel __read_mostly = EVDI_LOGLEVEL_INFO;$/;"	v	typeref:typename:unsigned int evdi_loglevel
+__read_mostly	module/evdi_params.c	/^unsigned short int evdi_initial_device_count __read_mostly;$/;"	v	typeref:typename:unsigned short int evdi_initial_device_count
+__user	library/evdi_lib.c	/^#  define __user$/;"	d	file:
+acquire_framebuffer_handler	pyevdi/Card.h	/^	py::function acquire_framebuffer_handler;$/;"	m	class:Card	typeref:typename:py::function
+active	module/evdi_drm_drv.h	/^	bool active;$/;"	m	struct:evdi_framebuffer	typeref:typename:bool
+addFrameBuffer	library/evdi_lib.c	/^static void addFrameBuffer(evdi_handle context,$/;"	f	typeref:typename:void	file:
+add_device_with_usb_path	module/evdi_sysfs.c	/^static ssize_t add_device_with_usb_path(struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+add_store	module/evdi_sysfs.c	/^static ssize_t add_store(struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+addr	module/evdi_sysfs.c	/^	int addr[MAX_EVDI_USB_ADDR];$/;"	m	struct:evdi_usb_addr	typeref:typename:int[]	file:
+address	library/evdi_lib.h	/^	uint16_t address;$/;"	m	struct:evdi_ddcci_data	typeref:typename:uint16_t
+address	module/evdi_drm.h	/^	uint16_t address;$/;"	m	struct:drm_evdi_event_ddcci_data	typeref:typename:uint16_t
+all	Makefile	/^all: module library pyevdi$/;"	t
+all	module/Makefile	/^all:$/;"	t
+all-with-rc-linux	Makefile	/^all-with-rc-linux: module-rc library pyevdi$/;"	t
+allow_sw_cursor_rect_updates	module/evdi_drm_drv.h	/^	bool allow_sw_cursor_rect_updates;$/;"	m	struct:evdi_gem_object	typeref:typename:bool
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_enable_cursor_events	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_crtc_state	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_cursor_move	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_ddcci_data	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_dpms	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:struct:drm_event
+base	module/evdi_drm.h	/^	struct drm_event base;$/;"	m	struct:drm_evdi_event_update_ready	typeref:struct:drm_event
+base	module/evdi_drm_drv.h	/^	struct drm_framebuffer base;$/;"	m	struct:evdi_framebuffer	typeref:struct:drm_framebuffer
+base	module/evdi_drm_drv.h	/^	struct drm_gem_object base;$/;"	m	struct:evdi_gem_object	typeref:struct:drm_gem_object
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_crtc_state_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_cursor_move_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_cursor_set_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_ddcci_data_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_dpms_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_mode_changed_pending	typeref:struct:drm_pending_event	file:
+base	module/evdi_painter.c	/^	struct drm_pending_event base;$/;"	m	struct:evdi_event_update_ready_pending	typeref:struct:drm_pending_event	file:
+bits_per_pixel	library/evdi_lib.h	/^	int bits_per_pixel;$/;"	m	struct:evdi_mode	typeref:typename:int
+bits_per_pixel	module/evdi_drm.h	/^	int32_t bits_per_pixel;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:typename:int32_t
+blend_alpha	module/evdi_cursor.c	/^static inline uint32_t blend_alpha(const uint32_t pixel_val32,$/;"	f	typeref:typename:uint32_t	file:
+blend_component	module/evdi_cursor.c	/^static inline uint32_t blend_component(uint32_t pixel,$/;"	f	typeref:typename:uint32_t	file:
+buf_byte_stride	module/evdi_drm.h	/^	int32_t buf_byte_stride;$/;"	m	struct:drm_evdi_grabpix	typeref:typename:int32_t
+buf_byte_stride	module/evdi_ioc32.c	/^	int32_t buf_byte_stride;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:int32_t	file:
+buf_height	module/evdi_drm.h	/^	int32_t buf_height;$/;"	m	struct:drm_evdi_grabpix	typeref:typename:int32_t
+buf_height	module/evdi_ioc32.c	/^	int32_t buf_height;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:int32_t	file:
+buf_width	module/evdi_drm.h	/^	int32_t buf_width;$/;"	m	struct:drm_evdi_grabpix	typeref:typename:int32_t
+buf_width	module/evdi_ioc32.c	/^	int32_t buf_width;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:int32_t	file:
+buffer	library/evdi_lib.h	/^	uint32_t *buffer;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t *
+buffer	library/evdi_lib.h	/^	uint8_t *buffer;$/;"	m	struct:evdi_ddcci_data	typeref:typename:uint8_t *
+buffer	library/evdi_lib.h	/^	void *buffer;$/;"	m	struct:evdi_buffer	typeref:typename:void *
+buffer	module/evdi_drm.h	/^	const unsigned char * __user buffer;$/;"	m	struct:drm_evdi_ddcci_response	typeref:typename:const unsigned char * __user
+buffer	module/evdi_drm.h	/^	unsigned char __user *buffer;$/;"	m	struct:drm_evdi_grabpix	typeref:typename:unsigned char __user *
+buffer	module/evdi_drm.h	/^	unsigned char buffer[DDCCI_BUFFER_SIZE];$/;"	m	struct:drm_evdi_event_ddcci_data	typeref:typename:unsigned char[]
+buffer	pyevdi/Buffer.h	/^	evdi_buffer buffer;$/;"	m	class:Buffer	typeref:typename:evdi_buffer
+bufferToUpdate	library/evdi_lib.c	/^	int bufferToUpdate;$/;"	m	struct:evdi_device_context	typeref:typename:int	file:
+buffer_handle	module/evdi_drm.h	/^	uint32_t buffer_handle;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+buffer_length	library/evdi_lib.h	/^	uint32_t buffer_length;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t
+buffer_length	library/evdi_lib.h	/^	uint32_t buffer_length;$/;"	m	struct:evdi_ddcci_data	typeref:typename:uint32_t
+buffer_length	module/evdi_drm.h	/^	uint32_t buffer_length;$/;"	m	struct:drm_evdi_ddcci_response	typeref:typename:uint32_t
+buffer_length	module/evdi_drm.h	/^	uint32_t buffer_length;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+buffer_length	module/evdi_drm.h	/^	uint32_t buffer_length;$/;"	m	struct:drm_evdi_event_ddcci_data	typeref:typename:uint32_t
+buffer_ptr32	module/evdi_ioc32.c	/^	uint32_t buffer_ptr32;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:uint32_t	file:
+buffer_requested	pyevdi/Card.h	/^	std::shared_ptr<Buffer> buffer_requested;$/;"	m	class:Card	typeref:typename:std::shared_ptr<Buffer>
+buffer_size	pyevdi/Buffer.h	/^	size_t buffer_size;$/;"	m	class:Buffer	typeref:typename:size_t
+buffer_span	pyevdi/Buffer.h	/^	std::span<uint32_t> buffer_span;$/;"	m	class:Buffer	typeref:typename:std::span<uint32_t>
+buffers	pyevdi/Card.h	/^	std::list<std::shared_ptr<Buffer> > buffers;$/;"	m	class:Card	typeref:typename:std::list<std::shared_ptr<Buffer>>
+bytes_per_pixel	pyevdi/Buffer.h	/^	size_t bytes_per_pixel;$/;"	m	class:Buffer	typeref:typename:size_t
+card_C_mode_handler	pyevdi/Card.cpp	/^void card_C_mode_handler(struct evdi_mode mode, void *user_data)$/;"	f	typeref:typename:void
+card_usage	library/evdi_lib.c	/^static evdi_handle card_usage[EVDI_USAGE_LEN];$/;"	v	typeref:typename:evdi_handle[]	file:
+ccflags-y	module/Makefile	/^ccflags-y := -Iinclude\/uapi\/drm -Iinclude\/drm $(EL8FLAG) $(EL9FLAG) $(RPIFLAG)$/;"	m
+ccflags-y	module/Makefile	/^ccflags-y := -isystem include\/uapi\/drm $(CFLAGS) $(EL8FLAG) $(EL9FLAG) $(RPIFLAG)$/;"	m
+clean	Makefile	/^clean:$/;"	t
+clean	library/Makefile	/^clean:$/;"	t
+clean	module/Makefile	/^clean:$/;"	t
+clean	pyevdi/Makefile	/^clean:$/;"	t
+clearBuffers	pyevdi/Card.cpp	/^void Card::clearBuffers()$/;"	f	class:Card	typeref:typename:void
+close	pyevdi/Card.cpp	/^void Card::close()$/;"	f	class:Card	typeref:typename:void
+collapse_dirty_rects	module/evdi_painter.c	/^static void collapse_dirty_rects(struct drm_clip_rect *rects, int *count)$/;"	f	typeref:typename:void	file:
+compat_evdi_connect	module/evdi_ioc32.c	/^static int compat_evdi_connect(struct file *file,$/;"	f	typeref:typename:int	file:
+compat_evdi_grabpix	module/evdi_ioc32.c	/^static int compat_evdi_grabpix(struct file *file,$/;"	f	typeref:typename:int	file:
+conn	module/evdi_drm_drv.h	/^	struct drm_connector *conn;$/;"	m	struct:evdi_device	typeref:struct:drm_connector *
+connect	pyevdi/Card.cpp	/^void Card::connect(const char *edid, const unsigned int edid_length,$/;"	f	class:Card	typeref:typename:void
+connected	module/evdi_drm.h	/^	int32_t connected;$/;"	m	struct:drm_evdi_connect	typeref:typename:int32_t
+connected	module/evdi_ioc32.c	/^	int32_t connected;$/;"	m	struct:drm_evdi_connect32	typeref:typename:int32_t	file:
+copy_cursor_pixels	module/evdi_painter.c	/^static void copy_cursor_pixels(struct evdi_framebuffer *efb,$/;"	f	typeref:typename:void	file:
+copy_primary_pixels	module/evdi_painter.c	/^static int copy_primary_pixels(struct evdi_framebuffer *efb,$/;"	f	typeref:typename:int	file:
+count_show	module/evdi_sysfs.c	/^static ssize_t count_show(__always_unused struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+create_cursor_move_event	module/evdi_painter.c	/^static struct drm_pending_event *create_cursor_move_event($/;"	f	typeref:struct:drm_pending_event *	file:
+create_cursor_set_event	module/evdi_painter.c	/^static struct drm_pending_event *create_cursor_set_event($/;"	f	typeref:struct:drm_pending_event *	file:
+create_ddcci_data_event	module/evdi_painter.c	/^static struct drm_pending_event *create_ddcci_data_event(struct i2c_msg *msg)$/;"	f	typeref:struct:drm_pending_event *	file:
+create_dpms_event	module/evdi_painter.c	/^static struct drm_pending_event *create_dpms_event(int mode)$/;"	f	typeref:struct:drm_pending_event *	file:
+create_mode_changed_event	module/evdi_painter.c	/^static struct drm_pending_event *create_mode_changed_event($/;"	f	typeref:struct:drm_pending_event *	file:
+create_update_ready_event	module/evdi_painter.c	/^static struct drm_pending_event *create_update_ready_event(void)$/;"	f	typeref:struct:drm_pending_event *	file:
+crtc	module/evdi_painter.c	/^	struct drm_crtc *crtc;$/;"	m	struct:evdi_painter	typeref:struct:drm_crtc *	file:
+crtc_state	module/evdi_painter.c	/^	struct drm_evdi_event_crtc_state crtc_state;$/;"	m	struct:evdi_event_crtc_state_pending	typeref:struct:drm_evdi_event_crtc_state	file:
+crtc_state_handler	library/evdi_lib.h	/^	void (*crtc_state_handler)(int state, void *user_data);$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(int state,void * user_data)
+cursor	module/evdi_drm_drv.h	/^	struct evdi_cursor *cursor;$/;"	m	struct:evdi_device	typeref:struct:evdi_cursor *
+cursor_events_enabled	module/evdi_drm_drv.h	/^	bool cursor_events_enabled;$/;"	m	struct:evdi_device	typeref:typename:bool
+cursor_move	module/evdi_painter.c	/^	struct drm_evdi_event_cursor_move cursor_move;$/;"	m	struct:evdi_event_cursor_move_pending	typeref:struct:drm_evdi_event_cursor_move	file:
+cursor_move_handler	library/evdi_lib.h	/^	void (*cursor_move_handler)(struct evdi_cursor_move cursor_move,$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(struct evdi_cursor_move cursor_move,void * user_data)
+cursor_set	module/evdi_painter.c	/^	struct drm_evdi_event_cursor_set cursor_set;$/;"	m	struct:evdi_event_cursor_set_pending	typeref:struct:drm_evdi_event_cursor_set	file:
+cursor_set_handler	library/evdi_lib.h	/^	void (*cursor_set_handler)(struct evdi_cursor_set cursor_set,$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(struct evdi_cursor_set cursor_set,void * user_data)
+ddcci_buffer	module/evdi_painter.c	/^	char *ddcci_buffer;$/;"	m	struct:evdi_painter	typeref:typename:char *	file:
+ddcci_buffer_length	module/evdi_painter.c	/^	unsigned int ddcci_buffer_length;$/;"	m	struct:evdi_painter	typeref:typename:unsigned int	file:
+ddcci_data	module/evdi_painter.c	/^	struct drm_evdi_event_ddcci_data ddcci_data;$/;"	m	struct:evdi_event_ddcci_data_pending	typeref:struct:drm_evdi_event_ddcci_data	file:
+ddcci_data_handler	library/evdi_lib.h	/^	void (*ddcci_data_handler)(struct evdi_ddcci_data ddcci_data,$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(struct evdi_ddcci_data ddcci_data,void * user_data)
+ddcci_response_received	module/evdi_painter.c	/^	struct completion ddcci_response_received;$/;"	m	struct:evdi_painter	typeref:struct:completion	file:
+ddev	module/evdi_drm_drv.h	/^	struct drm_device *ddev;$/;"	m	struct:evdi_device	typeref:struct:drm_device *
+default	library/Makefile	/^default: libevdi.so.$(LIBVER)$/;"	t
+default	module/Makefile	/^default: module$/;"	t
+default	pyevdi/Makefile	/^default: $(NAME)$/;"	t
+default_update_ready_handler	pyevdi/Card.cpp	/^void default_update_ready_handler(int buffer_to_be_updated, void *user_data)$/;"	f	typeref:typename:void
+dev_count	module/evdi_platform_drv.c	/^	unsigned int dev_count;$/;"	m	struct:evdi_platform_drv_context	typeref:typename:unsigned int	file:
+dev_index	module/evdi_drm.h	/^	int32_t dev_index;$/;"	m	struct:drm_evdi_connect	typeref:typename:int32_t
+dev_index	module/evdi_drm_drv.h	/^	int dev_index;$/;"	m	struct:evdi_device	typeref:typename:int
+dev_index	module/evdi_ioc32.c	/^	int32_t dev_index;$/;"	m	struct:drm_evdi_connect32	typeref:typename:int32_t	file:
+device_exists	library/evdi_lib.c	/^static int device_exists(int device)$/;"	f	typeref:typename:int	file:
+device_has_master	library/evdi_lib.c	/^static int device_has_master(const char *device_file_path)$/;"	f	typeref:typename:int	file:
+device_index	library/evdi_lib.c	/^	int device_index;$/;"	m	struct:evdi_device_context	typeref:typename:int	file:
+devices	module/evdi_platform_drv.c	/^	struct platform_device *devices[EVDI_DEVICE_COUNT_MAX];$/;"	m	struct:evdi_platform_drv_context	typeref:struct:platform_device * []	file:
+dirty_rects	module/evdi_painter.c	/^	struct drm_clip_rect dirty_rects[MAX_DIRTS];$/;"	m	struct:evdi_painter	typeref:struct:drm_clip_rect[]	file:
+disconnect	pyevdi/Card.cpp	/^void Card::disconnect()$/;"	f	class:Card	typeref:typename:void
+dli2c_access_master	module/evdi_i2c.c	/^static int dli2c_access_master(struct i2c_adapter *adapter,$/;"	f	typeref:typename:int	file:
+dli2c_algorithm	module/evdi_i2c.c	/^static struct i2c_algorithm dli2c_algorithm = {$/;"	v	typeref:struct:i2c_algorithm	file:
+dli2c_func	module/evdi_i2c.c	/^static u32 dli2c_func(__always_unused struct i2c_adapter *adapter)$/;"	f	typeref:typename:u32	file:
+do_ioctl	library/evdi_lib.c	/^static int do_ioctl(int fd, unsigned long request, void *data, const char *msg)$/;"	f	typeref:typename:int	file:
+does_path_links_to	library/evdi_lib.c	/^static int does_path_links_to(const char *link, const char *substr)$/;"	f	typeref:typename:int	file:
+dpms	module/evdi_painter.c	/^	struct drm_evdi_event_dpms dpms;$/;"	m	struct:evdi_event_dpms_pending	typeref:struct:drm_evdi_event_dpms	file:
+dpms_handler	library/evdi_lib.h	/^	void (*dpms_handler)(int dpms_mode, void *user_data);$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(int dpms_mode,void * user_data)
+dpms_handler	pyevdi/Card.cpp	/^void dpms_handler(int dpms_mode, void * \/*user_data*\/)$/;"	f	typeref:typename:void
+dpms_str	module/evdi_painter.c	/^static const char * const dpms_str[] = { "on", "standby", "suspend", "off" };$/;"	v	typeref:typename:const char * const[]	file:
+driver	module/evdi_drm_drv.c	/^static struct drm_driver driver = {$/;"	v	typeref:struct:drm_driver	file:
+driver	module/evdi_drm_drv.c	/^static struct drm_driver driver;$/;"	v	typeref:struct:drm_driver	file:
+drm_auth_magic	library/evdi_lib.c	/^static int drm_auth_magic(int fd, drm_magic_t magic)$/;"	f	typeref:typename:int	file:
+drm_dev	module/evdi_platform_dev.c	/^	struct drm_device *drm_dev;$/;"	m	struct:evdi_platform_device_data	typeref:struct:drm_device *	file:
+drm_device	module/evdi_painter.c	/^	struct drm_device *drm_device;$/;"	m	struct:evdi_painter	typeref:struct:drm_device *	file:
+drm_evdi_connect	module/evdi_drm.h	/^struct drm_evdi_connect {$/;"	s
+drm_evdi_connect32	module/evdi_ioc32.c	/^struct drm_evdi_connect32 {$/;"	s	file:
+drm_evdi_ddcci_response	module/evdi_drm.h	/^struct drm_evdi_ddcci_response {$/;"	s
+drm_evdi_enable_cursor_events	module/evdi_drm.h	/^struct drm_evdi_enable_cursor_events {$/;"	s
+drm_evdi_event_crtc_state	module/evdi_drm.h	/^struct drm_evdi_event_crtc_state {$/;"	s
+drm_evdi_event_cursor_move	module/evdi_drm.h	/^struct drm_evdi_event_cursor_move {$/;"	s
+drm_evdi_event_cursor_set	module/evdi_drm.h	/^struct drm_evdi_event_cursor_set {$/;"	s
+drm_evdi_event_ddcci_data	module/evdi_drm.h	/^struct drm_evdi_event_ddcci_data {$/;"	s
+drm_evdi_event_dpms	module/evdi_drm.h	/^struct drm_evdi_event_dpms {$/;"	s
+drm_evdi_event_mode_changed	module/evdi_drm.h	/^struct drm_evdi_event_mode_changed {$/;"	s
+drm_evdi_event_update_ready	module/evdi_drm.h	/^struct drm_evdi_event_update_ready {$/;"	s
+drm_evdi_grabpix	module/evdi_drm.h	/^struct drm_evdi_grabpix {$/;"	s
+drm_evdi_grabpix32	module/evdi_ioc32.c	/^struct drm_evdi_grabpix32 {$/;"	s	file:
+drm_evdi_grabpix_mode	module/evdi_drm.h	/^enum drm_evdi_grabpix_mode {$/;"	g
+drm_evdi_request_update	module/evdi_drm.h	/^struct drm_evdi_request_update {$/;"	s
+drm_filp	module/evdi_painter.c	/^	struct drm_file *drm_filp;$/;"	m	struct:evdi_painter	typeref:struct:drm_file *	file:
+drm_ioctl	library/evdi_lib.c	/^static int drm_ioctl(int fd, unsigned long request, void *arg)$/;"	f	typeref:typename:int	file:
+drm_is_master	library/evdi_lib.c	/^static int drm_is_master(int fd)$/;"	f	typeref:typename:int	file:
+edid	module/evdi_drm.h	/^	const unsigned char * __user edid;$/;"	m	struct:drm_evdi_connect	typeref:typename:const unsigned char * __user
+edid	module/evdi_painter.c	/^	struct edid *edid;$/;"	m	struct:evdi_painter	typeref:struct:edid *	file:
+edid_length	module/evdi_drm.h	/^	uint32_t edid_length;$/;"	m	struct:drm_evdi_connect	typeref:typename:uint32_t
+edid_length	module/evdi_ioc32.c	/^	uint32_t edid_length;$/;"	m	struct:drm_evdi_connect32	typeref:typename:uint32_t	file:
+edid_length	module/evdi_painter.c	/^	unsigned int edid_length;$/;"	m	struct:evdi_painter	typeref:typename:unsigned int	file:
+edid_ptr32	module/evdi_ioc32.c	/^	uint32_t edid_ptr32;$/;"	m	struct:drm_evdi_connect32	typeref:typename:uint32_t	file:
+efb	module/evdi_fb.c	/^	struct evdi_framebuffer efb;$/;"	m	struct:evdi_fbdev	typeref:struct:evdi_framebuffer	file:
+enable	module/evdi_drm.h	/^	uint8_t enable;$/;"	m	struct:drm_evdi_enable_cursor_events	typeref:typename:uint8_t
+enabled	library/evdi_lib.h	/^	uint8_t enabled;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint8_t
+enabled	module/evdi_cursor.c	/^	bool enabled;$/;"	m	struct:evdi_cursor	typeref:typename:bool	file:
+enabled	module/evdi_drm.h	/^	uint8_t enabled;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint8_t
+evdi-y	module/Makefile	/^evdi-y := evdi_platform_drv.o evdi_platform_dev.o evdi_sysfs.o evdi_modeset.o evdi_connector.o e/;"	m
+evdiHandle	pyevdi/Buffer.h	/^	evdi_handle evdiHandle;$/;"	m	class:Buffer	typeref:typename:evdi_handle
+evdiHandle	pyevdi/Card.h	/^	evdi_handle evdiHandle;$/;"	m	class:Card	typeref:typename:evdi_handle
+evdi_add_device	library/evdi_lib.c	/^int evdi_add_device(void)$/;"	f	typeref:typename:int
+evdi_add_i2c_adapter	module/evdi_painter.c	/^static void evdi_add_i2c_adapter(struct evdi_device *evdi)$/;"	f	typeref:typename:void	file:
+evdi_align_pitch	module/evdi_gem.c	/^static int evdi_align_pitch(int width, int cpp)$/;"	f	typeref:typename:int	file:
+evdi_best_encoder	module/evdi_connector.c	/^static struct drm_encoder *evdi_best_encoder(struct drm_connector *connector)$/;"	f	typeref:struct:drm_encoder *	file:
+evdi_buffer	library/evdi_lib.h	/^struct evdi_buffer {$/;"	s
+evdi_check_device	library/evdi_lib.c	/^enum evdi_device_status evdi_check_device(int device)$/;"	f	typeref:enum:evdi_device_status
+evdi_close	library/evdi_lib.c	/^void evdi_close(evdi_handle handle)$/;"	f	typeref:typename:void
+evdi_compat_ioctl	module/evdi_ioc32.c	/^long evdi_compat_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)$/;"	f	typeref:typename:long
+evdi_compat_ioctls	module/evdi_ioc32.c	/^static drm_ioctl_compat_t *evdi_compat_ioctls[] = {$/;"	v	typeref:typename:drm_ioctl_compat_t * []	file:
+evdi_connect	library/evdi_lib.c	/^void evdi_connect(evdi_handle handle,$/;"	f	typeref:typename:void
+evdi_connect2	library/evdi_lib.c	/^void evdi_connect2(evdi_handle handle,$/;"	f	typeref:typename:void
+evdi_connector_destroy	module/evdi_connector.c	/^static void evdi_connector_destroy(struct drm_connector *connector)$/;"	f	typeref:typename:void	file:
+evdi_connector_funcs	module/evdi_connector.c	/^static const struct drm_connector_funcs evdi_connector_funcs = {$/;"	v	typeref:typename:const struct drm_connector_funcs	file:
+evdi_connector_helper_funcs	module/evdi_connector.c	/^static struct drm_connector_helper_funcs evdi_connector_helper_funcs = {$/;"	v	typeref:struct:drm_connector_helper_funcs	file:
+evdi_connector_init	module/evdi_connector.c	/^int evdi_connector_init(struct drm_device *dev, struct drm_encoder *encoder)$/;"	f	typeref:typename:int
+evdi_create_plane	module/evdi_modeset.c	/^static struct drm_plane *evdi_create_plane($/;"	f	typeref:struct:drm_plane *	file:
+evdi_crtc_atomic_flush	module/evdi_modeset.c	/^static void evdi_crtc_atomic_flush($/;"	f	typeref:typename:void	file:
+evdi_crtc_commit	module/evdi_modeset.c	/^static void evdi_crtc_commit(__always_unused struct drm_crtc *crtc)$/;"	f	typeref:typename:void	file:
+evdi_crtc_cursor_move	module/evdi_modeset.c	/^static int evdi_crtc_cursor_move(struct drm_crtc *crtc, int x, int y)$/;"	f	typeref:typename:int	file:
+evdi_crtc_cursor_set	module/evdi_modeset.c	/^static int evdi_crtc_cursor_set(struct drm_crtc *crtc,$/;"	f	typeref:typename:int	file:
+evdi_crtc_destroy	module/evdi_modeset.c	/^static void evdi_crtc_destroy(struct drm_crtc *crtc)$/;"	f	typeref:typename:void	file:
+evdi_crtc_disable	module/evdi_modeset.c	/^static void evdi_crtc_disable(__always_unused struct drm_crtc *crtc)$/;"	f	typeref:typename:void	file:
+evdi_crtc_dpms	module/evdi_modeset.c	/^static void evdi_crtc_dpms(__always_unused struct drm_crtc *crtc,$/;"	f	typeref:typename:void	file:
+evdi_crtc_funcs	module/evdi_modeset.c	/^static const struct drm_crtc_funcs evdi_crtc_funcs = {$/;"	v	typeref:typename:const struct drm_crtc_funcs	file:
+evdi_crtc_init	module/evdi_modeset.c	/^static int evdi_crtc_init(struct drm_device *dev)$/;"	f	typeref:typename:int	file:
+evdi_crtc_set_nofb	module/evdi_modeset.c	/^static void evdi_crtc_set_nofb(__always_unused struct drm_crtc *crtc)$/;"	f	typeref:typename:void	file:
+evdi_cursor	module/evdi_cursor.c	/^struct evdi_cursor {$/;"	s	file:
+evdi_cursor_atomic_get_rect	module/evdi_modeset.c	/^static void evdi_cursor_atomic_get_rect(struct drm_clip_rect *rect,$/;"	f	typeref:typename:void	file:
+evdi_cursor_atomic_update	module/evdi_modeset.c	/^static void evdi_cursor_atomic_update(struct drm_plane *plane,$/;"	f	typeref:typename:void	file:
+evdi_cursor_compose_and_copy	module/evdi_cursor.c	/^int evdi_cursor_compose_and_copy(struct evdi_cursor *cursor,$/;"	f	typeref:typename:int
+evdi_cursor_compose_pixel	module/evdi_cursor.c	/^static int evdi_cursor_compose_pixel(char __user *buffer,$/;"	f	typeref:typename:int	file:
+evdi_cursor_enable	module/evdi_cursor.c	/^void evdi_cursor_enable(struct evdi_cursor *cursor, bool enable)$/;"	f	typeref:typename:void
+evdi_cursor_enabled	module/evdi_cursor.c	/^bool evdi_cursor_enabled(struct evdi_cursor *cursor)$/;"	f	typeref:typename:bool
+evdi_cursor_format	module/evdi_cursor.c	/^void evdi_cursor_format(struct evdi_cursor *cursor, uint32_t *format)$/;"	f	typeref:typename:void
+evdi_cursor_free	module/evdi_cursor.c	/^void evdi_cursor_free(struct evdi_cursor *cursor)$/;"	f	typeref:typename:void
+evdi_cursor_gem	module/evdi_cursor.c	/^struct evdi_gem_object *evdi_cursor_gem(struct evdi_cursor *cursor)$/;"	f	typeref:struct:evdi_gem_object *
+evdi_cursor_helper_funcs	module/evdi_modeset.c	/^static const struct drm_plane_helper_funcs evdi_cursor_helper_funcs = {$/;"	v	typeref:typename:const struct drm_plane_helper_funcs	file:
+evdi_cursor_hotpoint	module/evdi_cursor.c	/^void evdi_cursor_hotpoint(struct evdi_cursor *cursor,$/;"	f	typeref:typename:void
+evdi_cursor_init	module/evdi_cursor.c	/^int evdi_cursor_init(struct evdi_cursor **cursor)$/;"	f	typeref:typename:int
+evdi_cursor_lock	module/evdi_cursor.c	/^void evdi_cursor_lock(struct evdi_cursor *cursor)$/;"	f	typeref:typename:void
+evdi_cursor_move	library/evdi_lib.h	/^struct evdi_cursor_move {$/;"	s
+evdi_cursor_move	module/evdi_cursor.c	/^void evdi_cursor_move(struct evdi_cursor *cursor, int32_t x, int32_t y)$/;"	f	typeref:typename:void
+evdi_cursor_position	module/evdi_cursor.c	/^void evdi_cursor_position(struct evdi_cursor *cursor, int32_t *x, int32_t *y)$/;"	f	typeref:typename:void
+evdi_cursor_set	library/evdi_lib.h	/^struct evdi_cursor_set {$/;"	s
+evdi_cursor_set	module/evdi_cursor.c	/^void evdi_cursor_set(struct evdi_cursor *cursor,$/;"	f	typeref:typename:void
+evdi_cursor_set_gem	module/evdi_cursor.c	/^static void evdi_cursor_set_gem(struct evdi_cursor *cursor,$/;"	f	typeref:typename:void	file:
+evdi_cursor_size	module/evdi_cursor.c	/^void evdi_cursor_size(struct evdi_cursor *cursor,$/;"	f	typeref:typename:void
+evdi_cursor_stride	module/evdi_cursor.c	/^void evdi_cursor_stride(struct evdi_cursor *cursor, uint32_t *stride)$/;"	f	typeref:typename:void
+evdi_cursor_unlock	module/evdi_cursor.c	/^void evdi_cursor_unlock(struct evdi_cursor *cursor)$/;"	f	typeref:typename:void
+evdi_ddcci_data	library/evdi_lib.h	/^struct evdi_ddcci_data {$/;"	s
+evdi_ddcci_response	library/evdi_lib.c	/^void evdi_ddcci_response(evdi_handle handle, const unsigned char *buffer,$/;"	f	typeref:typename:void
+evdi_detect	module/evdi_connector.c	/^evdi_detect(struct drm_connector *connector, __always_unused bool force)$/;"	f	typeref:enum:drm_connector_status	file:
+evdi_device	module/evdi_drm_drv.h	/^struct evdi_device {$/;"	s
+evdi_device_attributes	module/evdi_sysfs.c	/^static struct device_attribute evdi_device_attributes[] = {$/;"	v	typeref:struct:device_attribute[]	file:
+evdi_device_context	library/evdi_lib.c	/^struct evdi_device_context {$/;"	s	file:
+evdi_device_status	library/evdi_lib.h	/^enum evdi_device_status {$/;"	g
+evdi_device_to_platform	library/evdi_lib.c	/^static enum evdi_device_status evdi_device_to_platform(int device, char *path)$/;"	f	typeref:enum:evdi_device_status	file:
+evdi_disable_vblank	module/evdi_drm_drv.c	/^static void evdi_disable_vblank(__always_unused struct drm_device *dev,$/;"	f	typeref:typename:void	file:
+evdi_disable_vblank	module/evdi_modeset.c	/^static void evdi_disable_vblank(__always_unused struct drm_crtc *crtc)$/;"	f	typeref:typename:void	file:
+evdi_disconnect	library/evdi_lib.c	/^void evdi_disconnect(evdi_handle handle)$/;"	f	typeref:typename:void
+evdi_driver_close	module/evdi_drm_drv.c	/^static void evdi_driver_close(struct drm_device *drm_dev, struct drm_file *file)$/;"	f	typeref:typename:void	file:
+evdi_driver_fops	module/evdi_drm_drv.c	/^static const struct file_operations evdi_driver_fops = {$/;"	v	typeref:typename:const struct file_operations	file:
+evdi_driver_open	module/evdi_drm_drv.c	/^int evdi_driver_open(struct drm_device *dev, __always_unused struct drm_file *file)$/;"	f	typeref:typename:int
+evdi_driver_postclose	module/evdi_drm_drv.c	/^void evdi_driver_postclose(struct drm_device *dev, struct drm_file *file)$/;"	f	typeref:typename:void
+evdi_driver_preclose	module/evdi_drm_drv.c	/^void evdi_driver_preclose(struct drm_device *drm_dev, struct drm_file *file)$/;"	f	typeref:typename:void
+evdi_drm_device_create	module/evdi_drm_drv.c	/^struct drm_device *evdi_drm_device_create(struct device *parent)$/;"	f	typeref:struct:drm_device *
+evdi_drm_device_deinit	module/evdi_drm_drv.c	/^static void evdi_drm_device_deinit(struct drm_device *dev)$/;"	f	typeref:typename:void	file:
+evdi_drm_device_init	module/evdi_drm_drv.c	/^static int evdi_drm_device_init(struct drm_device *dev)$/;"	f	typeref:typename:int	file:
+evdi_drm_device_release_cb	module/evdi_drm_drv.c	/^static void evdi_drm_device_release_cb(__always_unused struct drm_device *dev,$/;"	f	typeref:typename:void	file:
+evdi_drm_device_remove	module/evdi_drm_drv.c	/^int evdi_drm_device_remove(struct drm_device *dev)$/;"	f	typeref:typename:int
+evdi_drm_gem_mmap	module/evdi_gem.c	/^int evdi_drm_gem_mmap(struct file *filp, struct vm_area_struct *vma)$/;"	f	typeref:typename:int
+evdi_drm_gem_object_use_import_attach	module/evdi_gem.c	/^static bool evdi_drm_gem_object_use_import_attach(struct drm_gem_object *obj)$/;"	f	typeref:typename:bool	file:
+evdi_dumb_create	module/evdi_gem.c	/^int evdi_dumb_create(struct drm_file *file,$/;"	f	typeref:typename:int
+evdi_enable_cursor_events	library/evdi_lib.c	/^void evdi_enable_cursor_events(evdi_handle handle, bool enable)$/;"	f	typeref:typename:void
+evdi_enable_vblank	module/evdi_drm_drv.c	/^static int evdi_enable_vblank(__always_unused struct drm_device *dev,$/;"	f	typeref:typename:int	file:
+evdi_enable_vblank	module/evdi_modeset.c	/^static int evdi_enable_vblank(__always_unused struct drm_crtc *crtc)$/;"	f	typeref:typename:int	file:
+evdi_enc_destroy	module/evdi_encoder.c	/^static void evdi_enc_destroy(struct drm_encoder *encoder)$/;"	f	typeref:typename:void	file:
+evdi_enc_funcs	module/evdi_encoder.c	/^static const struct drm_encoder_funcs evdi_enc_funcs = {$/;"	v	typeref:typename:const struct drm_encoder_funcs	file:
+evdi_enc_helper_funcs	module/evdi_encoder.c	/^static const struct drm_encoder_helper_funcs evdi_enc_helper_funcs = {$/;"	v	typeref:typename:const struct drm_encoder_helper_funcs	file:
+evdi_encoder_disable	module/evdi_encoder.c	/^static void evdi_encoder_disable(__always_unused struct drm_encoder *encoder)$/;"	f	typeref:typename:void	file:
+evdi_encoder_enable	module/evdi_encoder.c	/^static void evdi_encoder_enable(__always_unused struct drm_encoder *encoder)$/;"	f	typeref:typename:void	file:
+evdi_encoder_init	module/evdi_encoder.c	/^struct drm_encoder *evdi_encoder_init(struct drm_device *dev)$/;"	f	typeref:struct:drm_encoder *
+evdi_event_context	library/evdi_lib.h	/^struct evdi_event_context {$/;"	s
+evdi_event_crtc_state_pending	module/evdi_painter.c	/^struct evdi_event_crtc_state_pending {$/;"	s	file:
+evdi_event_cursor_move_pending	module/evdi_painter.c	/^struct evdi_event_cursor_move_pending {$/;"	s	file:
+evdi_event_cursor_set_pending	module/evdi_painter.c	/^struct evdi_event_cursor_set_pending {$/;"	s	file:
+evdi_event_ddcci_data_pending	module/evdi_painter.c	/^struct evdi_event_ddcci_data_pending {$/;"	s	file:
+evdi_event_dpms_pending	module/evdi_painter.c	/^struct evdi_event_dpms_pending {$/;"	s	file:
+evdi_event_mode_changed_pending	module/evdi_painter.c	/^struct evdi_event_mode_changed_pending {$/;"	s	file:
+evdi_event_update_ready_pending	module/evdi_painter.c	/^struct evdi_event_update_ready_pending {$/;"	s	file:
+evdi_exit	module/evdi_platform_drv.c	/^static void __exit evdi_exit(void)$/;"	f	typeref:typename:void __exit	file:
+evdi_fb_copyarea	module/evdi_fb.c	/^static void evdi_fb_copyarea(struct fb_info *info,$/;"	f	typeref:typename:void	file:
+evdi_fb_fillrect	module/evdi_fb.c	/^static void evdi_fb_fillrect(struct fb_info *info,$/;"	f	typeref:typename:void	file:
+evdi_fb_get_bpp	module/evdi_fb.c	/^int evdi_fb_get_bpp(uint32_t format)$/;"	f	typeref:typename:int
+evdi_fb_helper_funcs	module/evdi_fb.c	/^static struct drm_fb_helper_funcs evdi_fb_helper_funcs = {$/;"	v	typeref:struct:drm_fb_helper_funcs	file:
+evdi_fb_imageblit	module/evdi_fb.c	/^static void evdi_fb_imageblit(struct fb_info *info,$/;"	f	typeref:typename:void	file:
+evdi_fb_mmap	module/evdi_fb.c	/^static int evdi_fb_mmap(struct fb_info *info, struct vm_area_struct *vma)$/;"	f	typeref:typename:int	file:
+evdi_fb_open	module/evdi_fb.c	/^static int evdi_fb_open(struct fb_info *info, int user)$/;"	f	typeref:typename:int	file:
+evdi_fb_release	module/evdi_fb.c	/^static int evdi_fb_release(struct fb_info *info, int user)$/;"	f	typeref:typename:int	file:
+evdi_fb_user_fb_create	module/evdi_fb.c	/^struct drm_framebuffer *evdi_fb_user_fb_create($/;"	f	typeref:struct:drm_framebuffer *
+evdi_fbdev	module/evdi_fb.c	/^struct evdi_fbdev {$/;"	s	file:
+evdi_fbdev_cleanup	module/evdi_fb.c	/^void evdi_fbdev_cleanup(struct drm_device *dev)$/;"	f	typeref:typename:void
+evdi_fbdev_destroy	module/evdi_fb.c	/^static void evdi_fbdev_destroy(__always_unused struct drm_device *dev,$/;"	f	typeref:typename:void	file:
+evdi_fbdev_init	module/evdi_fb.c	/^int evdi_fbdev_init(struct drm_device *dev)$/;"	f	typeref:typename:int
+evdi_fbdev_unplug	module/evdi_fb.c	/^void evdi_fbdev_unplug(struct drm_device *dev)$/;"	f	typeref:typename:void
+evdi_frame_buffer_node	library/evdi_lib.c	/^struct evdi_frame_buffer_node {$/;"	s	file:
+evdi_framebuffer	module/evdi_drm_drv.h	/^struct evdi_framebuffer {$/;"	s
+evdi_framebuffer_init	module/evdi_fb.c	/^evdi_framebuffer_init(struct drm_device *dev,$/;"	f	typeref:typename:int	file:
+evdi_framebuffer_sanitize_rect	module/evdi_fb.c	/^struct drm_clip_rect evdi_framebuffer_sanitize_rect($/;"	f	typeref:struct:drm_clip_rect
+evdi_gem_alloc_object	module/evdi_gem.c	/^struct evdi_gem_object *evdi_gem_alloc_object(struct drm_device *dev,$/;"	f	typeref:struct:evdi_gem_object *
+evdi_gem_create	module/evdi_gem.c	/^evdi_gem_create(struct drm_file *file,$/;"	f	typeref:typename:int	file:
+evdi_gem_fault	module/evdi_gem.c	/^vm_fault_t evdi_gem_fault(struct vm_fault *vmf)$/;"	f	typeref:typename:vm_fault_t
+evdi_gem_free_object	module/evdi_gem.c	/^void evdi_gem_free_object(struct drm_gem_object *gem_obj)$/;"	f	typeref:typename:void
+evdi_gem_get_pages	module/evdi_gem.c	/^static int evdi_gem_get_pages(struct evdi_gem_object *obj,$/;"	f	typeref:typename:int	file:
+evdi_gem_mmap	module/evdi_gem.c	/^int evdi_gem_mmap(struct drm_file *file,$/;"	f	typeref:typename:int
+evdi_gem_object	module/evdi_drm_drv.h	/^struct evdi_gem_object {$/;"	s
+evdi_gem_object_handle_lookup	module/evdi_gem.c	/^uint32_t evdi_gem_object_handle_lookup(struct drm_file *filp,$/;"	f	typeref:typename:uint32_t
+evdi_gem_put_pages	module/evdi_gem.c	/^static void evdi_gem_put_pages(struct evdi_gem_object *obj)$/;"	f	typeref:typename:void	file:
+evdi_gem_vm_ops	module/evdi_drm_drv.c	/^static const struct vm_operations_struct evdi_gem_vm_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct	file:
+evdi_gem_vm_ops	module/evdi_gem.c	/^static const struct vm_operations_struct evdi_gem_vm_ops = {$/;"	v	typeref:typename:const struct vm_operations_struct	file:
+evdi_gem_vmap	module/evdi_gem.c	/^int evdi_gem_vmap(struct evdi_gem_object *obj)$/;"	f	typeref:typename:int
+evdi_gem_vunmap	module/evdi_gem.c	/^void evdi_gem_vunmap(struct evdi_gem_object *obj)$/;"	f	typeref:typename:void
+evdi_get_dumb_offset	library/evdi_lib.c	/^static uint64_t evdi_get_dumb_offset(evdi_handle ehandle, uint32_t handle)$/;"	f	typeref:typename:uint64_t	file:
+evdi_get_event_ready	library/evdi_lib.c	/^evdi_selectable evdi_get_event_ready(evdi_handle handle)$/;"	f	typeref:typename:evdi_selectable
+evdi_get_lib_version	library/evdi_lib.c	/^void evdi_get_lib_version(struct evdi_lib_version *version)$/;"	f	typeref:typename:void
+evdi_get_modes	module/evdi_connector.c	/^static int evdi_get_modes(struct drm_connector *connector)$/;"	f	typeref:typename:int	file:
+evdi_grab_pixels	library/evdi_lib.c	/^void evdi_grab_pixels(evdi_handle handle,$/;"	f	typeref:typename:void
+evdi_handle	library/evdi_lib.h	/^typedef struct evdi_device_context *evdi_handle;$/;"	t	typeref:struct:evdi_device_context *
+evdi_handle_damage	module/evdi_fb.c	/^static int evdi_handle_damage(struct evdi_framebuffer *fb,$/;"	f	typeref:typename:int	file:
+evdi_handle_event	library/evdi_lib.c	/^static void evdi_handle_event(evdi_handle handle,$/;"	f	typeref:typename:void	file:
+evdi_handle_events	library/evdi_lib.c	/^void evdi_handle_events(evdi_handle handle, struct evdi_event_context *evtctx)$/;"	f	typeref:typename:void
+evdi_helper_funcs	module/evdi_modeset.c	/^static struct drm_crtc_helper_funcs evdi_helper_funcs = {$/;"	v	typeref:struct:drm_crtc_helper_funcs	file:
+evdi_i2c_add	module/evdi_i2c.c	/^int evdi_i2c_add(struct i2c_adapter *adapter, struct device *parent,$/;"	f	typeref:typename:int
+evdi_i2c_remove	module/evdi_i2c.c	/^void evdi_i2c_remove(struct i2c_adapter *adapter)$/;"	f	typeref:typename:void
+evdi_init	module/evdi_platform_drv.c	/^static int __init evdi_init(void)$/;"	f	typeref:typename:int __init	file:
+evdi_lib_version	library/evdi_lib.h	/^struct evdi_lib_version {$/;"	s
+evdi_log	library/evdi_lib.c	/^#define evdi_log(/;"	d	file:
+evdi_log_pixel_format	module/evdi_painter.c	/^static void evdi_log_pixel_format(uint32_t pixel_format,$/;"	f	typeref:typename:void	file:
+evdi_log_process	module/evdi_debug.c	/^void evdi_log_process(char *buf, size_t size)$/;"	f	typeref:typename:void
+evdi_logging	library/evdi_lib.h	/^struct evdi_logging {$/;"	s
+evdi_mark_full_screen_dirty	module/evdi_modeset.c	/^static void evdi_mark_full_screen_dirty(struct evdi_device *evdi)$/;"	f	typeref:typename:void	file:
+evdi_mode	library/evdi_lib.h	/^struct evdi_mode {$/;"	s
+evdi_mode_funcs	module/evdi_modeset.c	/^static const struct drm_mode_config_funcs evdi_mode_funcs = {$/;"	v	typeref:typename:const struct drm_mode_config_funcs	file:
+evdi_mode_valid	module/evdi_connector.c	/^static enum drm_mode_status evdi_mode_valid(struct drm_connector *connector,$/;"	f	typeref:enum:drm_mode_status	file:
+evdi_modeset_cleanup	module/evdi_modeset.c	/^void evdi_modeset_cleanup(__maybe_unused struct drm_device *dev)$/;"	f	typeref:typename:void
+evdi_modeset_init	module/evdi_modeset.c	/^void evdi_modeset_init(struct drm_device *dev)$/;"	f	typeref:typename:void
+evdi_open	library/evdi_lib.c	/^evdi_handle evdi_open(int device)$/;"	f	typeref:typename:evdi_handle
+evdi_open_attached_to	library/evdi_lib.c	/^evdi_handle evdi_open_attached_to(const char *sysfs_parent_device)$/;"	f	typeref:typename:evdi_handle
+evdi_painter	module/evdi_painter.c	/^struct evdi_painter {$/;"	s	file:
+evdi_painter_add_event_to_pending_list	module/evdi_painter.c	/^static void evdi_painter_add_event_to_pending_list($/;"	f	typeref:typename:void	file:
+evdi_painter_cleanup	module/evdi_painter.c	/^void evdi_painter_cleanup(struct evdi_painter *painter)$/;"	f	typeref:typename:void
+evdi_painter_close	module/evdi_painter.c	/^void evdi_painter_close(struct evdi_device *evdi, struct drm_file *file)$/;"	f	typeref:typename:void
+evdi_painter_connect	module/evdi_painter.c	/^evdi_painter_connect(struct evdi_device *evdi,$/;"	f	typeref:typename:int	file:
+evdi_painter_connect_ioctl	module/evdi_painter.c	/^int evdi_painter_connect_ioctl(struct drm_device *drm_dev, void *data,$/;"	f	typeref:typename:int
+evdi_painter_ddcci_data	module/evdi_painter.c	/^static void evdi_painter_ddcci_data(struct evdi_painter *painter, struct i2c_msg *msg)$/;"	f	typeref:typename:void	file:
+evdi_painter_ddcci_response_ioctl	module/evdi_painter.c	/^int evdi_painter_ddcci_response_ioctl(struct drm_device *drm_dev, void *data,$/;"	f	typeref:typename:int
+evdi_painter_disconnect	module/evdi_painter.c	/^static int evdi_painter_disconnect(struct evdi_device *evdi,$/;"	f	typeref:typename:int	file:
+evdi_painter_dpms_notify	module/evdi_painter.c	/^void evdi_painter_dpms_notify(struct evdi_device *evdi, int mode)$/;"	f	typeref:typename:void
+evdi_painter_enable_cursor_events_ioctl	module/evdi_painter.c	/^int evdi_painter_enable_cursor_events_ioctl(struct drm_device *drm_dev, void *data,$/;"	f	typeref:typename:int
+evdi_painter_events_cleanup	module/evdi_painter.c	/^static void evdi_painter_events_cleanup(struct evdi_painter *painter)$/;"	f	typeref:typename:void	file:
+evdi_painter_flush_pending_events	module/evdi_painter.c	/^static bool evdi_painter_flush_pending_events(struct evdi_painter *painter)$/;"	f	typeref:typename:bool	file:
+evdi_painter_force_full_modeset	module/evdi_painter.c	/^void evdi_painter_force_full_modeset(struct evdi_painter *painter)$/;"	f	typeref:typename:void
+evdi_painter_framebuffer_size	module/evdi_painter.c	/^struct drm_clip_rect evdi_painter_framebuffer_size($/;"	f	typeref:struct:drm_clip_rect
+evdi_painter_get_edid_copy	module/evdi_painter.c	/^u8 *evdi_painter_get_edid_copy(struct evdi_device *evdi)$/;"	f	typeref:typename:u8 *
+evdi_painter_get_gem_handle	module/evdi_painter.c	/^static uint32_t evdi_painter_get_gem_handle(struct evdi_painter *painter,$/;"	f	typeref:typename:uint32_t	file:
+evdi_painter_get_num_dirts	module/evdi_painter.c	/^int evdi_painter_get_num_dirts(struct evdi_painter *painter)$/;"	f	typeref:typename:int
+evdi_painter_grabpix_ioctl	module/evdi_painter.c	/^int evdi_painter_grabpix_ioctl(struct drm_device *drm_dev, void *data,$/;"	f	typeref:typename:int
+evdi_painter_i2c_data_notify	module/evdi_painter.c	/^bool evdi_painter_i2c_data_notify(struct evdi_painter *painter, struct i2c_msg *msg)$/;"	f	typeref:typename:bool
+evdi_painter_init	module/evdi_painter.c	/^int evdi_painter_init(struct evdi_device *dev)$/;"	f	typeref:typename:int
+evdi_painter_ioctls	module/evdi_drm_drv.c	/^struct drm_ioctl_desc evdi_painter_ioctls[] = {$/;"	v	typeref:struct:drm_ioctl_desc[]
+evdi_painter_is_connected	module/evdi_painter.c	/^bool evdi_painter_is_connected(struct evdi_painter *painter)$/;"	f	typeref:typename:bool
+evdi_painter_mark_dirty	module/evdi_painter.c	/^void evdi_painter_mark_dirty(struct evdi_device *evdi,$/;"	f	typeref:typename:void
+evdi_painter_mode_changed_notify	module/evdi_painter.c	/^void evdi_painter_mode_changed_notify(struct evdi_device *evdi,$/;"	f	typeref:typename:void
+evdi_painter_needs_full_modeset	module/evdi_painter.c	/^bool evdi_painter_needs_full_modeset(struct evdi_painter *painter)$/;"	f	typeref:typename:bool
+evdi_painter_request_update_ioctl	module/evdi_painter.c	/^int evdi_painter_request_update_ioctl(struct drm_device *drm_dev,$/;"	f	typeref:typename:int
+evdi_painter_send_cursor_move	module/evdi_painter.c	/^void evdi_painter_send_cursor_move(struct evdi_painter *painter,$/;"	f	typeref:typename:void
+evdi_painter_send_cursor_set	module/evdi_painter.c	/^void evdi_painter_send_cursor_set(struct evdi_painter *painter,$/;"	f	typeref:typename:void
+evdi_painter_send_dpms	module/evdi_painter.c	/^static void evdi_painter_send_dpms(struct evdi_painter *painter, int mode)$/;"	f	typeref:typename:void	file:
+evdi_painter_send_event	module/evdi_painter.c	/^static void evdi_painter_send_event(struct evdi_painter *painter,$/;"	f	typeref:typename:void	file:
+evdi_painter_send_mode_changed	module/evdi_painter.c	/^static void evdi_painter_send_mode_changed($/;"	f	typeref:typename:void	file:
+evdi_painter_send_update_ready	module/evdi_painter.c	/^static void evdi_painter_send_update_ready(struct evdi_painter *painter)$/;"	f	typeref:typename:void	file:
+evdi_painter_send_update_ready_if_needed	module/evdi_painter.c	/^void evdi_painter_send_update_ready_if_needed(struct evdi_painter *painter)$/;"	f	typeref:typename:void
+evdi_painter_send_vblank	module/evdi_painter.c	/^static void evdi_painter_send_vblank(struct evdi_painter *painter)$/;"	f	typeref:typename:void	file:
+evdi_painter_set_scanout_buffer	module/evdi_painter.c	/^void evdi_painter_set_scanout_buffer(struct evdi_painter *painter,$/;"	f	typeref:typename:void
+evdi_painter_set_vblank	module/evdi_painter.c	/^void evdi_painter_set_vblank($/;"	f	typeref:typename:void
+evdi_pin_pages	module/evdi_gem.c	/^static int evdi_pin_pages(struct evdi_gem_object *obj)$/;"	f	typeref:typename:int	file:
+evdi_plane_atomic_update	module/evdi_modeset.c	/^static void evdi_plane_atomic_update(struct drm_plane *plane,$/;"	f	typeref:typename:void	file:
+evdi_plane_funcs	module/evdi_modeset.c	/^static const struct drm_plane_funcs evdi_plane_funcs = {$/;"	v	typeref:typename:const struct drm_plane_funcs	file:
+evdi_plane_helper_funcs	module/evdi_modeset.c	/^static const struct drm_plane_helper_funcs evdi_plane_helper_funcs = {$/;"	v	typeref:typename:const struct drm_plane_helper_funcs	file:
+evdi_platform_add_devices	module/evdi_platform_drv.c	/^int evdi_platform_add_devices(struct device *device, unsigned int val)$/;"	f	typeref:typename:int
+evdi_platform_dev_create	module/evdi_platform_dev.c	/^struct platform_device *evdi_platform_dev_create(struct platform_device_info *info)$/;"	f	typeref:struct:platform_device *
+evdi_platform_dev_destroy	module/evdi_platform_dev.c	/^void evdi_platform_dev_destroy(struct platform_device *dev)$/;"	f	typeref:typename:void
+evdi_platform_device_add	module/evdi_platform_drv.c	/^int evdi_platform_device_add(struct device *device, struct device *parent)$/;"	f	typeref:typename:int
+evdi_platform_device_attach	module/evdi_sysfs.c	/^static int evdi_platform_device_attach(struct device *device,$/;"	f	typeref:typename:int	file:
+evdi_platform_device_count	module/evdi_platform_drv.c	/^unsigned int evdi_platform_device_count(struct device *device)$/;"	f	typeref:typename:unsigned int
+evdi_platform_device_data	module/evdi_platform_dev.c	/^struct evdi_platform_device_data {$/;"	s	file:
+evdi_platform_device_is_free	module/evdi_platform_dev.c	/^bool evdi_platform_device_is_free(struct platform_device *pdev)$/;"	f	typeref:typename:bool
+evdi_platform_device_link	module/evdi_platform_dev.c	/^void evdi_platform_device_link(struct platform_device *pdev,$/;"	f	typeref:typename:void
+evdi_platform_device_probe	module/evdi_platform_dev.c	/^int evdi_platform_device_probe(struct platform_device *pdev)$/;"	f	typeref:typename:int
+evdi_platform_device_remove	module/evdi_platform_dev.c	/^int evdi_platform_device_remove(struct platform_device *pdev)$/;"	f	typeref:typename:int
+evdi_platform_device_unlink_if_linked_with	module/evdi_platform_dev.c	/^void evdi_platform_device_unlink_if_linked_with(struct platform_device *pdev,$/;"	f	typeref:typename:void
+evdi_platform_driver	module/evdi_platform_drv.c	/^static struct platform_driver evdi_platform_driver = {$/;"	v	typeref:struct:platform_driver	file:
+evdi_platform_drv_context	module/evdi_platform_drv.c	/^static struct evdi_platform_drv_context {$/;"	s	file:
+evdi_platform_drv_context_lock	module/evdi_platform_drv.c	/^#define evdi_platform_drv_context_lock(/;"	d	file:
+evdi_platform_drv_context_unlock	module/evdi_platform_drv.c	/^#define evdi_platform_drv_context_unlock(/;"	d	file:
+evdi_platform_drv_create_new_device	module/evdi_platform_drv.c	/^static struct platform_device *evdi_platform_drv_create_new_device(struct evdi_platform_drv_cont/;"	f	typeref:struct:platform_device *	file:
+evdi_platform_drv_get_free_device	module/evdi_platform_drv.c	/^static struct platform_device *evdi_platform_drv_get_free_device(struct evdi_platform_drv_contex/;"	f	typeref:struct:platform_device *	file:
+evdi_platform_drv_get_free_idx	module/evdi_platform_drv.c	/^static int evdi_platform_drv_get_free_idx(struct evdi_platform_drv_context *ctx)$/;"	f	typeref:typename:int	file:
+evdi_platform_drv_usb	module/evdi_platform_drv.c	/^static int evdi_platform_drv_usb(__always_unused struct notifier_block *nb,$/;"	f	typeref:typename:int	file:
+evdi_platform_remove_all_devices	module/evdi_platform_drv.c	/^void evdi_platform_remove_all_devices(struct device *device)$/;"	f	typeref:typename:void
+evdi_prime_get_sg_table	module/evdi_gem.c	/^struct sg_table *evdi_prime_get_sg_table(struct drm_gem_object *obj)$/;"	f	typeref:struct:sg_table *
+evdi_prime_import_sg_table	module/evdi_gem.c	/^evdi_prime_import_sg_table(struct drm_device *dev,$/;"	f	typeref:struct:drm_gem_object *
+evdi_prime_pin	module/evdi_gem.c	/^static int evdi_prime_pin(struct drm_gem_object *obj)$/;"	f	typeref:typename:int	file:
+evdi_prime_unpin	module/evdi_gem.c	/^static void evdi_prime_unpin(struct drm_gem_object *obj)$/;"	f	typeref:typename:void	file:
+evdi_rect	library/evdi_lib.h	/^struct evdi_rect {$/;"	s
+evdi_register_buffer	library/evdi_lib.c	/^void evdi_register_buffer(evdi_handle handle, struct evdi_buffer buffer)$/;"	f	typeref:typename:void
+evdi_remove_i2c_adapter	module/evdi_painter.c	/^static void evdi_remove_i2c_adapter(struct evdi_device *evdi)$/;"	f	typeref:typename:void	file:
+evdi_request_update	library/evdi_lib.c	/^bool evdi_request_update(evdi_handle handle, int bufferId)$/;"	f	typeref:typename:bool
+evdi_selectable	library/evdi_lib.h	/^typedef int evdi_selectable;$/;"	t	typeref:typename:int
+evdi_send_events_work	module/evdi_painter.c	/^static void evdi_send_events_work(struct work_struct *work)$/;"	f	typeref:typename:void	file:
+evdi_send_vblank	module/evdi_painter.c	/^static void evdi_send_vblank(struct drm_crtc *crtc,$/;"	f	typeref:typename:void	file:
+evdi_set_logging	library/evdi_lib.c	/^void evdi_set_logging(struct evdi_logging evdi_logging)$/;"	f	typeref:typename:void
+evdi_sysfs_exit	module/evdi_sysfs.c	/^void evdi_sysfs_exit(struct device *root)$/;"	f	typeref:typename:void
+evdi_sysfs_init	module/evdi_sysfs.c	/^void evdi_sysfs_init(struct device *root)$/;"	f	typeref:typename:void
+evdi_unpin_pages	module/evdi_gem.c	/^static void evdi_unpin_pages(struct evdi_gem_object *obj)$/;"	f	typeref:typename:void	file:
+evdi_unregister_buffer	library/evdi_lib.c	/^void evdi_unregister_buffer(evdi_handle handle, int bufferId)$/;"	f	typeref:typename:void
+evdi_usb_addr	module/evdi_sysfs.c	/^struct evdi_usb_addr {$/;"	s	file:
+evdi_user_framebuffer_create_handle	module/evdi_fb.c	/^static int evdi_user_framebuffer_create_handle(struct drm_framebuffer *fb,$/;"	f	typeref:typename:int	file:
+evdi_user_framebuffer_destroy	module/evdi_fb.c	/^static void evdi_user_framebuffer_destroy(struct drm_framebuffer *fb)$/;"	f	typeref:typename:void	file:
+evdi_user_framebuffer_dirty	module/evdi_fb.c	/^static int evdi_user_framebuffer_dirty($/;"	f	typeref:typename:int	file:
+evdi_was_called_by_mutter	module/evdi_gem.c	/^static bool evdi_was_called_by_mutter(void)$/;"	f	typeref:typename:bool	file:
+evdifb_create	module/evdi_fb.c	/^static int evdifb_create(struct drm_fb_helper *helper,$/;"	f	typeref:typename:int	file:
+evdifb_funcs	module/evdi_fb.c	/^static const struct drm_framebuffer_funcs evdifb_funcs = {$/;"	v	typeref:typename:const struct drm_framebuffer_funcs	file:
+evdifb_ops	module/evdi_fb.c	/^static const struct fb_ops evdifb_ops = {$/;"	v	typeref:typename:const struct fb_ops	file:
+eventContext	pyevdi/Card.h	/^	evdi_event_context eventContext;$/;"	m	class:Card	typeref:typename:evdi_event_context
+expand_rect	module/evdi_painter.c	/^static void expand_rect(struct drm_clip_rect *a, const struct drm_clip_rect *b)$/;"	f	typeref:typename:void	file:
+fb_count	module/evdi_fb.c	/^	int fb_count;$/;"	m	struct:evdi_fbdev	typeref:typename:int	file:
+fb_ops	module/evdi_fb.c	/^	const struct fb_ops *fb_ops;$/;"	m	struct:evdi_fbdev	typeref:typename:const struct fb_ops *	file:
+fbdev	module/evdi_drm_drv.h	/^	struct evdi_fbdev *fbdev;$/;"	m	struct:evdi_device	typeref:struct:evdi_fbdev *
+fbdev_list	module/evdi_fb.c	/^	struct list_head fbdev_list;$/;"	m	struct:evdi_fbdev	typeref:struct:list_head	file:
+fd	library/evdi_lib.c	/^	int fd;$/;"	m	struct:evdi_device_context	typeref:typename:int	file:
+findBuffer	library/evdi_lib.c	/^static struct evdi_frame_buffer_node *findBuffer(evdi_handle context, int id)$/;"	f	typeref:struct:evdi_frame_buffer_node *	file:
+find_unused_card_for	library/evdi_lib.c	/^static int find_unused_card_for(const char *parent_device)$/;"	f	typeref:typename:int	file:
+find_usb_device_at_path	module/evdi_sysfs.c	/^static int find_usb_device_at_path(struct usb_device *usb, void *data)$/;"	f	typeref:typename:int	file:
+flags	library/evdi_lib.h	/^	uint16_t flags;$/;"	m	struct:evdi_ddcci_data	typeref:typename:uint16_t
+flags	module/evdi_drm.h	/^	uint16_t flags;$/;"	m	struct:drm_evdi_event_ddcci_data	typeref:typename:uint16_t
+formats	module/evdi_modeset.c	/^static const uint32_t formats[] = {$/;"	v	typeref:typename:const uint32_t[]	file:
+frameBuffersListHead	library/evdi_lib.c	/^	struct evdi_frame_buffer_node *frameBuffersListHead;$/;"	m	struct:evdi_device_context	typeref:struct:evdi_frame_buffer_node *	file:
+frame_buffer	library/evdi_lib.c	/^	struct evdi_buffer frame_buffer;$/;"	m	struct:evdi_frame_buffer_node	typeref:struct:evdi_buffer	file:
+function	library/evdi_lib.h	/^	void (*function)(void *user_data, const char *fmt, ...);$/;"	m	struct:evdi_logging	typeref:typename:void (*)(void * user_data,const char * fmt,...)
+g_ctx	module/evdi_platform_drv.c	/^} g_ctx;$/;"	v	typeref:struct:evdi_platform_drv_context
+g_evdi_logging	library/evdi_lib.c	/^struct evdi_logging g_evdi_logging = {$/;"	v	typeref:struct:evdi_logging
+gem_obj_funcs	module/evdi_gem.c	/^static struct drm_gem_object_funcs gem_obj_funcs = {$/;"	v	typeref:struct:drm_gem_object_funcs	file:
+getMode	pyevdi/Card.cpp	/^struct evdi_mode Card::getMode() const$/;"	f	class:Card	typeref:struct:evdi_mode
+get_device_attached_to_usb	library/evdi_lib.c	/^static int get_device_attached_to_usb(const char *sysfs_parent_device)$/;"	f	typeref:typename:int	file:
+get_drm_device_index	library/evdi_lib.c	/^static int get_drm_device_index(const char *evdi_sysfs_drm_dir)$/;"	f	typeref:typename:int	file:
+get_generic_device	library/evdi_lib.c	/^static int get_generic_device(void)$/;"	f	typeref:typename:int	file:
+grab_pixels	pyevdi/Card.cpp	/^void Card::grab_pixels()$/;"	f	class:Card	typeref:typename:void
+handle_events	pyevdi/Card.cpp	/^void Card::handle_events(int waiting_time)$/;"	f	class:Card	typeref:typename:void
+hdisplay	module/evdi_drm.h	/^	int32_t hdisplay;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:typename:int32_t
+height	library/evdi_lib.h	/^	int height;$/;"	m	struct:evdi_buffer	typeref:typename:int
+height	library/evdi_lib.h	/^	int height;$/;"	m	struct:evdi_mode	typeref:typename:int
+height	library/evdi_lib.h	/^	uint32_t height;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t
+height	module/evdi_cursor.c	/^	uint32_t height;$/;"	m	struct:evdi_cursor	typeref:typename:uint32_t	file:
+height	module/evdi_drm.h	/^	uint32_t height;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+helper	module/evdi_fb.c	/^	struct drm_fb_helper helper;$/;"	m	struct:evdi_fbdev	typeref:struct:drm_fb_helper	file:
+hot_x	library/evdi_lib.h	/^	int32_t hot_x;$/;"	m	struct:evdi_cursor_set	typeref:typename:int32_t
+hot_x	module/evdi_cursor.c	/^	int32_t hot_x;$/;"	m	struct:evdi_cursor	typeref:typename:int32_t	file:
+hot_x	module/evdi_drm.h	/^	int32_t hot_x;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:int32_t
+hot_y	library/evdi_lib.h	/^	int32_t hot_y;$/;"	m	struct:evdi_cursor_set	typeref:typename:int32_t
+hot_y	module/evdi_cursor.c	/^	int32_t hot_y;$/;"	m	struct:evdi_cursor	typeref:typename:int32_t	file:
+hot_y	module/evdi_drm.h	/^	int32_t hot_y;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:int32_t
+i2c_adapter	module/evdi_drm_drv.h	/^	struct i2c_adapter *i2c_adapter;$/;"	m	struct:evdi_device	typeref:struct:i2c_adapter *
+id	library/evdi_lib.h	/^	int id;$/;"	m	struct:evdi_buffer	typeref:typename:int
+install	Makefile	/^install:$/;"	t
+install	library/Makefile	/^install:$/;"	t
+install	module/Makefile	/^install:$/;"	t
+install	pyevdi/Makefile	/^install:$/;"	t
+install_dkms	module/Makefile	/^install_dkms:$/;"	t
+is_connected	module/evdi_painter.c	/^	bool is_connected;$/;"	m	struct:evdi_painter	typeref:typename:bool	file:
+is_correct_parent_device	library/evdi_lib.c	/^static bool is_correct_parent_device(const char *dirname, const char *parent_device)$/;"	f	typeref:typename:bool	file:
+is_evdi	library/evdi_lib.c	/^static int is_evdi(int fd)$/;"	f	typeref:typename:int	file:
+is_evdi_compatible	library/evdi_lib.c	/^static int is_evdi_compatible(int fd)$/;"	f	typeref:typename:int	file:
+is_evdi_event_squashable	module/evdi_painter.c	/^static bool is_evdi_event_squashable(struct drm_pending_event *event)$/;"	f	typeref:typename:bool	file:
+is_lowest_frequency_mode_of_given_resolution	module/evdi_connector.c	/^static bool is_lowest_frequency_mode_of_given_resolution($/;"	f	typeref:typename:bool	file:
+len	module/evdi_sysfs.c	/^	int len;$/;"	m	struct:evdi_usb_addr	typeref:typename:int	file:
+libevdi.so.$(LIBVER)	library/Makefile	/^libevdi.so.$(LIBVER): evdi_lib.o$/;"	t
+library	Makefile	/^library:$/;"	t
+lock	module/evdi_cursor.c	/^	struct mutex lock;$/;"	m	struct:evdi_cursor	typeref:struct:mutex	file:
+lock	module/evdi_painter.c	/^	struct mutex lock;$/;"	m	struct:evdi_painter	typeref:struct:mutex	file:
+lock	module/evdi_platform_drv.c	/^	struct mutex lock;$/;"	m	struct:evdi_platform_drv_context	typeref:struct:mutex	file:
+log_function	pyevdi/PyEvdi.cpp	/^void log_function(void * \/*user_data*\/, const char *format, ...)$/;"	f	typeref:typename:void
+loglevel_show	module/evdi_sysfs.c	/^static ssize_t loglevel_show(__always_unused struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+loglevel_store	module/evdi_sysfs.c	/^static ssize_t loglevel_store(__always_unused struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+makeBuffers	pyevdi/Card.cpp	/^void Card::makeBuffers(int count)$/;"	f	class:Card	typeref:typename:void
+merge_dirty_rects	module/evdi_painter.c	/^static void merge_dirty_rects(struct drm_clip_rect *rects, int *count)$/;"	f	typeref:typename:void	file:
+mode	module/evdi_drm.h	/^	enum drm_evdi_grabpix_mode mode;$/;"	m	struct:drm_evdi_grabpix	typeref:enum:drm_evdi_grabpix_mode
+mode	module/evdi_drm.h	/^	int32_t mode;$/;"	m	struct:drm_evdi_event_dpms	typeref:typename:int32_t
+mode	module/evdi_ioc32.c	/^	uint32_t mode;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:uint32_t	file:
+mode	pyevdi/Card.h	/^	evdi_mode mode;$/;"	m	class:Card	typeref:typename:evdi_mode
+mode_changed	module/evdi_painter.c	/^	struct drm_evdi_event_mode_changed mode_changed;$/;"	m	struct:evdi_event_mode_changed_pending	typeref:struct:drm_evdi_event_mode_changed	file:
+mode_changed_handler	library/evdi_lib.h	/^	void (*mode_changed_handler)(struct evdi_mode mode, void *user_data);$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(struct evdi_mode mode,void * user_data)
+mode_handler	pyevdi/Card.h	/^	py::function mode_handler;$/;"	m	class:Card	typeref:typename:py::function
+module	Makefile	/^module:$/;"	t
+module	module/Makefile	/^module:$/;"	t
+module-rc	Makefile	/^module-rc:$/;"	t
+needs_full_modeset	module/evdi_painter.c	/^	bool needs_full_modeset;$/;"	m	struct:evdi_painter	typeref:typename:bool	file:
+next	library/evdi_lib.c	/^	struct evdi_frame_buffer_node *next;$/;"	m	struct:evdi_frame_buffer_node	typeref:struct:evdi_frame_buffer_node *	file:
+num_dirts	module/evdi_painter.c	/^	int num_dirts;$/;"	m	struct:evdi_painter	typeref:typename:int	file:
+num_rects	module/evdi_drm.h	/^	int32_t num_rects;$/;"	m	struct:drm_evdi_grabpix	typeref:typename:int32_t
+num_rects	module/evdi_ioc32.c	/^	int32_t num_rects;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:int32_t	file:
+numerator	pyevdi/Buffer.cpp	/^int Buffer::numerator = 0;$/;"	m	class:Buffer	typeref:typename:int
+numerator	pyevdi/Buffer.h	/^	static int numerator;$/;"	m	class:Buffer	typeref:typename:int
+obj	module/evdi_cursor.c	/^	struct evdi_gem_object *obj;$/;"	m	struct:evdi_cursor	typeref:struct:evdi_gem_object *	file:
+obj	module/evdi_drm_drv.h	/^	struct evdi_gem_object *obj;$/;"	m	struct:evdi_framebuffer	typeref:struct:evdi_gem_object *
+obj-$(CONFIG_DRM_EVDI)	module/Makefile	/^obj-$(CONFIG_DRM_EVDI) := evdi.o$/;"	m
+obj-m	module/Makefile	/^obj-m := evdi.o$/;"	m
+open_as_slave	library/evdi_lib.c	/^static int open_as_slave(const char *device_path)$/;"	f	typeref:typename:int	file:
+open_device	library/evdi_lib.c	/^static int open_device(int device)$/;"	f	typeref:typename:int	file:
+pages	module/evdi_drm_drv.h	/^	struct page **pages;$/;"	m	struct:evdi_gem_object	typeref:struct:page **
+pages_lock	module/evdi_drm_drv.h	/^	struct mutex pages_lock;$/;"	m	struct:evdi_gem_object	typeref:struct:mutex
+pages_pin_count	module/evdi_drm_drv.h	/^	unsigned int pages_pin_count;$/;"	m	struct:evdi_gem_object	typeref:typename:unsigned int
+painter	module/evdi_drm_drv.h	/^	struct evdi_painter *painter;$/;"	m	struct:evdi_device	typeref:struct:evdi_painter *
+painter_lock	module/evdi_painter.c	/^#define painter_lock(/;"	d	file:
+painter_unlock	module/evdi_painter.c	/^#define painter_unlock(/;"	d	file:
+parent	module/evdi_platform_dev.c	/^	struct device *parent;$/;"	m	struct:evdi_platform_device_data	typeref:struct:device *	file:
+path_exists	library/evdi_lib.c	/^static int path_exists(const char *path)$/;"	f	typeref:typename:int	file:
+pending_events	module/evdi_painter.c	/^	struct list_head pending_events;$/;"	m	struct:evdi_painter	typeref:struct:list_head	file:
+pixel_area_limit	module/evdi_drm.h	/^	uint32_t pixel_area_limit;$/;"	m	struct:drm_evdi_connect	typeref:typename:uint32_t
+pixel_area_limit	module/evdi_drm_drv.h	/^	uint32_t pixel_area_limit;$/;"	m	struct:evdi_device	typeref:typename:uint32_t
+pixel_area_limit	module/evdi_ioc32.c	/^	uint32_t pixel_area_limit;$/;"	m	struct:drm_evdi_connect32	typeref:typename:uint32_t	file:
+pixel_format	library/evdi_lib.h	/^	uint32_t pixel_format;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t
+pixel_format	library/evdi_lib.h	/^	unsigned int pixel_format;$/;"	m	struct:evdi_mode	typeref:typename:unsigned int
+pixel_format	module/evdi_cursor.c	/^	uint32_t pixel_format;$/;"	m	struct:evdi_cursor	typeref:typename:uint32_t	file:
+pixel_format	module/evdi_drm.h	/^	uint32_t pixel_format;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+pixel_format	module/evdi_drm.h	/^	uint32_t pixel_format;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:typename:uint32_t
+pixel_per_second_limit	module/evdi_drm.h	/^	uint32_t pixel_per_second_limit;$/;"	m	struct:drm_evdi_connect	typeref:typename:uint32_t
+pixel_per_second_limit	module/evdi_drm_drv.h	/^	uint32_t pixel_per_second_limit;$/;"	m	struct:evdi_device	typeref:typename:uint32_t
+pixel_per_second_limit	module/evdi_ioc32.c	/^	uint32_t pixel_per_second_limit;$/;"	m	struct:drm_evdi_connect32	typeref:typename:uint32_t	file:
+process_opened_device	library/evdi_lib.c	/^static int process_opened_device(const char *pid, const char *device_file_path)$/;"	f	typeref:typename:int	file:
+process_opened_files	library/evdi_lib.c	/^static int process_opened_files(const char *pid, const char *device_file_path)$/;"	f	typeref:typename:int	file:
+pyevdi	Makefile	/^pyevdi:$/;"	t
+rect_area	module/evdi_painter.c	/^static int rect_area(const struct drm_clip_rect *r)$/;"	f	typeref:typename:int	file:
+rect_count	library/evdi_lib.h	/^	int rect_count;$/;"	m	struct:evdi_buffer	typeref:typename:int
+rects	library/evdi_lib.h	/^	struct evdi_rect *rects;$/;"	m	struct:evdi_buffer	typeref:struct:evdi_rect *
+rects	module/evdi_drm.h	/^	struct drm_clip_rect __user *rects;$/;"	m	struct:drm_evdi_grabpix	typeref:struct:drm_clip_rect __user *
+rects_ptr32	module/evdi_ioc32.c	/^	uint32_t rects_ptr32;$/;"	m	struct:drm_evdi_grabpix32	typeref:typename:uint32_t	file:
+rects_span	pyevdi/Buffer.h	/^	std::span<evdi_rect> rects_span;$/;"	m	class:Buffer	typeref:typename:std::span<evdi_rect>
+refresh_rate	library/evdi_lib.h	/^	int refresh_rate;$/;"	m	struct:evdi_mode	typeref:typename:int
+removeFrameBuffer	library/evdi_lib.c	/^static int removeFrameBuffer(evdi_handle context, int const *id)$/;"	f	typeref:typename:int	file:
+remove_all_store	module/evdi_sysfs.c	/^static ssize_t remove_all_store(struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+request_update	pyevdi/Card.cpp	/^void Card::request_update()$/;"	f	class:Card	typeref:typename:void
+reserved	module/evdi_drm.h	/^	int32_t reserved;$/;"	m	struct:drm_evdi_request_update	typeref:typename:int32_t
+result	module/evdi_drm.h	/^	uint8_t result;$/;"	m	struct:drm_evdi_ddcci_response	typeref:typename:uint8_t
+root_dev	module/evdi_platform_drv.c	/^	struct device *root_dev;$/;"	m	struct:evdi_platform_drv_context	typeref:struct:device *	file:
+scanout_fb	module/evdi_painter.c	/^	struct evdi_framebuffer *scanout_fb;$/;"	m	struct:evdi_painter	typeref:struct:evdi_framebuffer *	file:
+send_events_work	module/evdi_painter.c	/^	struct delayed_work send_events_work;$/;"	m	struct:evdi_painter	typeref:struct:delayed_work	file:
+setMode	pyevdi/Card.cpp	/^void Card::setMode(struct evdi_mode mode)$/;"	f	class:Card	typeref:typename:void
+sg	module/evdi_drm_drv.h	/^	struct sg_table *sg;$/;"	m	struct:evdi_gem_object	typeref:struct:sg_table *
+state	module/evdi_drm.h	/^	int32_t state;$/;"	m	struct:drm_evdi_event_crtc_state	typeref:typename:int32_t
+stride	library/evdi_lib.h	/^	int stride;$/;"	m	struct:evdi_buffer	typeref:typename:int
+stride	library/evdi_lib.h	/^	uint32_t stride;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t
+stride	module/evdi_cursor.c	/^	uint32_t stride;$/;"	m	struct:evdi_cursor	typeref:typename:uint32_t	file:
+stride	module/evdi_drm.h	/^	uint32_t stride;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+symlinked	module/evdi_platform_dev.c	/^	bool symlinked;$/;"	m	struct:evdi_platform_device_data	typeref:typename:bool	file:
+tests	pyevdi/Makefile	/^tests:$/;"	t
+to_evdi_bo	module/evdi_drm_drv.h	/^#define to_evdi_bo(/;"	d
+to_evdi_cursor_move	library/evdi_lib.c	/^static struct evdi_cursor_move to_evdi_cursor_move($/;"	f	typeref:struct:evdi_cursor_move	file:
+to_evdi_cursor_set	library/evdi_lib.c	/^static struct evdi_cursor_set to_evdi_cursor_set($/;"	f	typeref:struct:evdi_cursor_set	file:
+to_evdi_ddcci_data	library/evdi_lib.c	/^static struct evdi_ddcci_data to_evdi_ddcci_data($/;"	f	typeref:struct:evdi_ddcci_data	file:
+to_evdi_fb	module/evdi_drm_drv.h	/^#define to_evdi_fb(/;"	d
+to_evdi_mode	library/evdi_lib.c	/^static struct evdi_mode to_evdi_mode(struct drm_evdi_event_mode_changed *event)$/;"	f	typeref:struct:evdi_mode	file:
+uninstall	Makefile	/^uninstall:$/;"	t
+uninstall	library/Makefile	/^uninstall:$/;"	t
+uninstall	module/Makefile	/^uninstall:$/;"	t
+uninstall	pyevdi/Makefile	/^uninstall:$/;"	t
+uninstall_dkms	module/Makefile	/^uninstall_dkms:$/;"	t
+update_ready	module/evdi_painter.c	/^	struct drm_evdi_event_update_ready update_ready;$/;"	m	struct:evdi_event_update_ready_pending	typeref:struct:drm_evdi_event_update_ready	file:
+update_ready_handler	library/evdi_lib.h	/^	void (*update_ready_handler)(int buffer_to_be_updated, void *user_data);$/;"	m	struct:evdi_event_context	typeref:typename:void (*)(int buffer_to_be_updated,void * user_data)
+usb	module/evdi_sysfs.c	/^	struct usb_device *usb;$/;"	m	struct:evdi_usb_addr	typeref:struct:usb_device *	file:
+usb_notifier	module/evdi_platform_drv.c	/^	struct notifier_block usb_notifier;$/;"	m	struct:evdi_platform_drv_context	typeref:struct:notifier_block	file:
+user_data	library/evdi_lib.h	/^	void *user_data;$/;"	m	struct:evdi_event_context	typeref:typename:void *
+user_data	library/evdi_lib.h	/^	void *user_data;$/;"	m	struct:evdi_logging	typeref:typename:void *
+vblank	module/evdi_painter.c	/^	struct drm_pending_vblank_event *vblank;$/;"	m	struct:evdi_painter	typeref:struct:drm_pending_vblank_event *	file:
+vdisplay	module/evdi_drm.h	/^	int32_t vdisplay;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:typename:int32_t
+version_major	library/evdi_lib.h	/^	int version_major;$/;"	m	struct:evdi_lib_version	typeref:typename:int
+version_minor	library/evdi_lib.h	/^	int version_minor;$/;"	m	struct:evdi_lib_version	typeref:typename:int
+version_patchlevel	library/evdi_lib.h	/^	int version_patchlevel;$/;"	m	struct:evdi_lib_version	typeref:typename:int
+version_show	module/evdi_sysfs.c	/^static ssize_t version_show(__always_unused struct device *dev,$/;"	f	typeref:typename:ssize_t	file:
+vmap_is_iomem	module/evdi_drm_drv.h	/^	bool vmap_is_iomem;$/;"	m	struct:evdi_gem_object	typeref:typename:bool
+vmapping	module/evdi_drm_drv.h	/^	void *vmapping;$/;"	m	struct:evdi_gem_object	typeref:typename:void *
+vrefresh	module/evdi_drm.h	/^	int32_t vrefresh;$/;"	m	struct:drm_evdi_event_mode_changed	typeref:typename:int32_t
+wait_for_device	library/evdi_lib.c	/^static int wait_for_device(const char *device_path)$/;"	f	typeref:typename:int	file:
+wait_for_master	library/evdi_lib.c	/^static void wait_for_master(const char *device_path)$/;"	f	typeref:typename:void	file:
+was_update_requested	module/evdi_painter.c	/^	bool was_update_requested;$/;"	m	struct:evdi_painter	typeref:typename:bool	file:
+width	library/evdi_lib.h	/^	int width;$/;"	m	struct:evdi_buffer	typeref:typename:int
+width	library/evdi_lib.h	/^	int width;$/;"	m	struct:evdi_mode	typeref:typename:int
+width	library/evdi_lib.h	/^	uint32_t width;$/;"	m	struct:evdi_cursor_set	typeref:typename:uint32_t
+width	module/evdi_cursor.c	/^	uint32_t width;$/;"	m	struct:evdi_cursor	typeref:typename:uint32_t	file:
+width	module/evdi_drm.h	/^	uint32_t width;$/;"	m	struct:drm_evdi_event_cursor_set	typeref:typename:uint32_t
+write_add_device	library/evdi_lib.c	/^static int write_add_device(const char *buffer, size_t buffer_length)$/;"	f	typeref:typename:int	file:
+x	library/evdi_lib.h	/^	int32_t x;$/;"	m	struct:evdi_cursor_move	typeref:typename:int32_t
+x	module/evdi_cursor.c	/^	int32_t x;$/;"	m	struct:evdi_cursor	typeref:typename:int32_t	file:
+x	module/evdi_drm.h	/^	int32_t x;$/;"	m	struct:drm_evdi_event_cursor_move	typeref:typename:int32_t
+x1	library/evdi_lib.h	/^	int x1, y1, x2, y2;$/;"	m	struct:evdi_rect	typeref:typename:int
+x2	library/evdi_lib.h	/^	int x1, y1, x2, y2;$/;"	m	struct:evdi_rect	typeref:typename:int
+y	library/evdi_lib.h	/^	int32_t y;$/;"	m	struct:evdi_cursor_move	typeref:typename:int32_t
+y	module/evdi_cursor.c	/^	int32_t y;$/;"	m	struct:evdi_cursor	typeref:typename:int32_t	file:
+y	module/evdi_drm.h	/^	int32_t y;$/;"	m	struct:drm_evdi_event_cursor_move	typeref:typename:int32_t
+y1	library/evdi_lib.h	/^	int x1, y1, x2, y2;$/;"	m	struct:evdi_rect	typeref:typename:int
+y2	library/evdi_lib.h	/^	int x1, y1, x2, y2;$/;"	m	struct:evdi_rect	typeref:typename:int
+~Buffer	pyevdi/Buffer.cpp	/^Buffer::~Buffer()$/;"	f	class:Buffer
+~Card	pyevdi/Card.cpp	/^Card::~Card()$/;"	f	class:Card
