@@ -34,8 +34,8 @@ int main()
 
 	while (true) {
 		// possible correct way
-		testGraphicCard.handle_events(int((1 / _30HZ) * 1000)); // in unit of ms
-		//testGraphicCard.handle_events(1000);
+		//testGraphicCard.handle_events(int((1 / _30HZ) * 1000)); // in unit of ms
+		testGraphicCard.handle_events(1000);
 	}
 
 	testGraphicCard.disconnect();

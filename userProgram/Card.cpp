@@ -28,7 +28,7 @@ void card_C_mode_handler(struct evdi_mode mode, void *user_data)
 	assert(card);
 
 	card->setMode(mode);
-	card->makeBuffers(2);
+	card->makeBuffers(30);//TODO: change later?
 
 	// if (card->m_modeHandler != nullptr) {
 	// 	card->m_modeHandler(mode);
