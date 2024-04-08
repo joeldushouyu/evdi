@@ -42,7 +42,7 @@ clean:
 # 	$(CXX) $^ $(LDFLAGS) $(LIBS) -Wl,-soname,$(NAME).so.$(LIBABI) -o $(NAME)
 
 main: $(OBJS)
-	$(CXX) $^ $(LDFLAGS) $(LIBS) -Wl,-soname,$(NAME).so.$(LIBABI) -o main -lm -lpthread -lX11 
+	$(CXX) $^ $(LDFLAGS) $(LIBS) -Wl,-soname,$(NAME).so.$(LIBABI) -o main -lm -lpthread -lX11  -lusb-1.0
 
 # tests:
 # 	LD_LIBRARY_PATH=../library python3 -m pytest test/

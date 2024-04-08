@@ -10,7 +10,7 @@ int Buffer::numerator = 0;
 Buffer::Buffer(evdi_mode mode, evdi_handle evdiHandle)
 {
 	int id = numerator++;
-
+	this->bufferSizeInByte = mode.width * mode.height * (mode.bits_per_pixel / 8);
 	this->evdiHandle = evdiHandle;
 	int stride = mode.width;
 	int pitch_mask = 63;
@@ -19,6 +19,7 @@ Buffer::Buffer(evdi_mode mode, evdi_handle evdiHandle)
 	stride &= ~pitch_mask;
 	stride *= 4;
 
+	
 	buffer.id = id;
 	buffer.width = mode.width;
 	buffer.height = mode.height;
@@ -33,6 +34,12 @@ Buffer::Buffer(evdi_mode mode, evdi_handle evdiHandle)
 		  << std::endl;
 
 	evdi_register_buffer(evdiHandle, buffer);
+
+	this->inUSBQueue = false;// indicate read for usb send queue
+	this->firsTimeInQueue = true;
+	// initalize the usb_transfer buffer
+	// this->transfer = libusb_alloc_transfer(0);
+
 }
 
 Buffer::~Buffer()

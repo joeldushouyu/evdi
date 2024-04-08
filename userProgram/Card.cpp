@@ -7,7 +7,21 @@
 #include <iostream>
 #include "CImg.h"
 #include <stdexcept>
+
 // namespace py = pybind11;
+
+static 	unsigned int RGBTo16Bit(unsigned char R, unsigned G, unsigned B){
+
+    R /= 16;
+    G /= 16;
+    B /= 16;
+    // now, try to combine
+    unsigned int returnResult;
+    return returnResult = (0 << 12) | (R << 8 & 0xF00) | (G << 4 & 0xF0) | (B & 0xF);
+
+}
+
+
 
 void default_update_ready_handler(int buffer_to_be_updated, void *user_data)
 {
@@ -28,7 +42,7 @@ void card_C_mode_handler(struct evdi_mode mode, void *user_data)
 	assert(card);
 
 	card->setMode(mode);
-	card->makeBuffers(30);//TODO: change later?
+	card->makeBuffers(IMAGE_BUFFER_SIZE);//TODO: change later?
 
 	// if (card->m_modeHandler != nullptr) {
 	// 	card->m_modeHandler(mode);
@@ -47,6 +61,17 @@ void Card::makeBuffers(int count)
 	clearBuffers();
 	for (int i = 0; i < count; i++) {
 		buffers.emplace_back(new Buffer(mode, evdiHandle));
+		std::shared_ptr<Buffer> currentBuffer = buffers.at(i);
+		// fill up the bulk transfer
+		// libusb_fill_bulk_transfer(currentBuffer->transfer,
+		// 	this->handle, ENDPOINT_OUT,  (unsigned char *) currentBuffer->buffer.buffer,
+		// 	currentBuffer->bufferSizeInByte, CypressBulkCallback,
+
+		// 	this, 1000
+		// 	//TODO:
+
+		// );
+
 	}
 }
 
@@ -54,6 +79,7 @@ void Card::clearBuffers()
 {
 	buffer_requested.reset();
 	buffers.clear();
+	usb_bulk_buffer_deque.clear();
 }
 
 void dpms_handler(int dpms_mode, void * /*user_data*/)
@@ -119,6 +145,40 @@ void Card::close()
 	evdiHandle = nullptr;
 }
 
+
+
+int  Card:: claimCypressUSBDevice(){
+	int r;
+
+
+	r = libusb_init(& (this->usb_context));
+    if (r < 0)
+    {
+        fprintf(stderr, "Error initializing libusb: %s\n", libusb_error_name(r));
+        return 1;
+    }
+
+    // Open the device
+    handle = libusb_open_device_with_vid_pid(NULL, VENDOR_ID, PRODUCT_ID);
+    if (!handle)
+    {
+        fprintf(stderr, "Failed to open device\n");
+        libusb_exit(this->usb_context);
+        return 1;
+    }
+
+    // Claim the interface
+    r = libusb_claim_interface(handle, 0);
+    if (r < 0)
+    {
+        fprintf(stderr, "Error claiming interface: %s\n", libusb_error_name(r));
+        libusb_close(handle);
+        libusb_exit( this->usb_context);
+        return 1;
+    }
+	return 0;
+}
+
 void Card::connect(const char *edid, const unsigned int edid_length,
 		   const uint32_t pixel_area_limit,
 		   const uint32_t pixel_per_second_limit)
@@ -162,20 +222,28 @@ void Card::request_update()
 		return;
 	}
 
+	// tru to get the lock
+	std::cout << "waiting for the lock" << std::endl;
+	this->usb_bulk_buffer_deque_mutex.lock();
+	std::cout << "acquire for the lock" << std::endl;
 	for (auto &i : buffers) {
-		if (i.use_count() == 1) {
+		//if (i.use_count() == 1 && i->inUSBQueue == false) {
+		if ( i->inUSBQueue == false) {
 			buffer_requested = i;
 			break;
 		}
 	}
+	this->usb_bulk_buffer_deque_mutex.unlock();
 
+	std::cout<< "release for the lock " << std::endl;
 	if (!buffer_requested) {
+		std::cout <<"cannot find!" <<std::endl;
 		return;
 	}
-
+	std::cout <<"start waiting for update" << std::endl;
 	bool update_ready =
 		evdi_request_update(evdiHandle, buffer_requested->buffer.id);
-
+	std::cout <<"after waiting for update" << std::endl;
 	if (update_ready) {
 		grab_pixels();
 	}
@@ -189,9 +257,58 @@ void Card::grab_pixels()
 
 	evdi_grab_pixels(evdiHandle, buffer_requested->buffer.rects,
 			 &buffer_requested->buffer.rect_count);
-	// std::cout << " new frame:   width " << mode.width << "height "
-	// 	  << mode.height << "bpp " << mode.bits_per_pixel
-	// 	  << "refresh rate " << mode.refresh_rate << std::endl;
+	
+	std::cout << " new frame:   width " << mode.width << "height "
+		  << mode.height << "bpp " << mode.bits_per_pixel
+		  << "refresh rate " << mode.refresh_rate << std::endl;
+
+	// // now, process the data 
+	// // only for 16 bit mode to compress the data
+	unsigned int i,k;
+	for (i = 0; i < mode.height; i++) {
+		for (k = 0; k < mode.width; k++) {
+			unsigned int offset = (i * mode.width + k) *
+					      (mode.bits_per_pixel / 8);
+
+			struct evdi_buffer b = buffer_requested->buffer;
+			// unsigned char byte1 =
+			// 	((char *)b.buffer)[offset];
+			// unsigned char byte2 =
+			// 	((char *)b.buffer)[offset + 1];
+			// unsigned char byte3 =
+			// 	((char *)b.buffer)[offset + 2];
+			//std::cout << "offset " << offset << std::endl;
+			if (mode.bits_per_pixel / 8 == 4) {
+				const unsigned char color[4] = {
+					((unsigned char *)b.buffer)[offset],
+					((unsigned char *)b.buffer)[offset + 1],
+					((unsigned char *)b.buffer)[offset + 2],
+					((unsigned char *)b.buffer)[offset + 3],
+				};
+				// img.draw_point(k, i, color);
+				//TODO: this is monitor specific
+				int CompressImage = RGBTo16Bit(color[2],color[1] ,color[0]);
+				((unsigned char *)b.buffer)[offset+0]  = 0x0;
+				((unsigned char *)b.buffer)[offset+1] = 0x0; 
+				((unsigned char *)b.buffer)[offset+2] = (CompressImage >> 8) & 0xFF;
+				((unsigned char *)b.buffer)[offset+3] = (CompressImage ) & 0xFF;
+			}
+		}
+	}
+	// add to queue
+	// if(buffer_requested->firsTimeInQueue){
+	// 	buffer_requested->firsTimeInQueue = false;
+	// 	// send 
+	// 	buffer_requested->inUSBQueue = true;
+	// 	libusb_submit_transfer(buffer_requested->transfer);
+	// }else{
+	// 	// lets add to the buffer
+	this->usb_bulk_buffer_deque_mutex.lock();
+	// 	std::cout <<"adding to queue" << std::endl;
+		buffer_requested->inUSBQueue = true;
+		this->usb_bulk_buffer_deque.push_back(buffer_requested); // should also increase the count
+	this->usb_bulk_buffer_deque_mutex.unlock();
+	// }
 #ifdef DEBUG
 	//std::cout << "draw image" << std::endl;
 	frame++;
@@ -215,11 +332,12 @@ void Card::grab_pixels()
 			//std::cout << "offset " << offset << std::endl;
 			if (mode.bits_per_pixel / 8 == 4) {
 				const unsigned char color[4] = {
-					((unsigned char *)b.buffer)[offset],
-					((unsigned char *)b.buffer)[offset + 1],
-					((unsigned char *)b.buffer)[offset + 2],
-					((unsigned char *)b.buffer)[offset + 3],
+					((unsigned char *)b.buffer)[offset], // r?
+					((unsigned char *)b.buffer)[offset + 1], // green
+					0,//((unsigned char *)b.buffer)[offset + 2],// b
+					0//((unsigned char *)b.buffer)[offset + 3],//
 				};
+				unsigned char fixedColor[4] = {color[3], color[2], color[1], color[0]};
 				img.draw_point(k, i, color);
 			}
 		}

@@ -8,17 +8,25 @@
 #include <stdio.h> /* printf */
 #include <assert.h> /* assert */
 #include <iostream>
-
-
+#include <libusb-1.0/libusb.h>
+#include <deque>
 #include "CImg.h"
+#include <mutex>
+#include <vector>
 
-#define DEBUG 1
+
+//USB device specific
+#define VENDOR_ID 0x04b4    
+#define PRODUCT_ID 0x00f1    
+#define ENDPOINT_OUT 0x01
+#define  IMAGE_BUFFER_SIZE 60
+//#define DEBUG 0
 class Card {
 	evdi_handle evdiHandle;
 	evdi_event_context eventContext;
 	evdi_mode mode;
 
-	std::list<std::shared_ptr<Buffer> > buffers;
+
 	std::shared_ptr<Buffer> buffer_requested;
 
 	void setMode(struct evdi_mode mode);
@@ -32,6 +40,7 @@ class Card {
 	friend void card_C_mode_handler(struct evdi_mode mode, void *user_data);
 
     public:
+	std::vector<std::shared_ptr<Buffer> > buffers;
 	// std::function<void(struct evdi_mode)> m_modeHandler;
 	// std::function<void(std::shared_ptr<Buffer> buffer)>
 	// 	acquire_framebuffer_cb;
@@ -47,6 +56,18 @@ class Card {
 	struct evdi_mode getMode() const;
 	void request_update();
 	void handle_events(int waiting_time);
+
+
+	// for USB stuff
+	libusb_device_handle *handle=NULL;
+	struct libusb_context *usb_context = NULL;
+
+	int  claimCypressUSBDevice();
+
+	
+	// queue of Buffer pointers
+	std::deque<std::shared_ptr<Buffer> > usb_bulk_buffer_deque;
+	std::mutex usb_bulk_buffer_deque_mutex;
 
 	// FOR debug only
 #ifdef DEBUG

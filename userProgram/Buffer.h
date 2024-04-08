@@ -4,6 +4,7 @@
 
 #include "../library/evdi_lib.h"
 #include <memory>
+#include <libusb-1.0/libusb.h>
 
 class Buffer : public std::enable_shared_from_this<Buffer> {
 	static int numerator;
@@ -13,6 +14,13 @@ class Buffer : public std::enable_shared_from_this<Buffer> {
 	evdi_buffer buffer;
 	Buffer(evdi_mode mode, evdi_handle evdiHandle);
 	~Buffer();
+
+	size_t bufferSizeInByte;
+	// each buffer has a libusb_transfer object, along with its memory
+	struct libusb_transfer *transfer;
+	bool inUSBQueue;
+
+	bool firsTimeInQueue;
 };
 
 #endif
