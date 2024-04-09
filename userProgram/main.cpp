@@ -14,9 +14,9 @@
 // another test
 #define _30HZ 30
 
-#define DATA_SIZE 4 * (4096) //   4*4096 // 16384 *100  // 1024*4*4*2// 1024*4 *4   *2// Define the size of the data buffer
+// #define DATA_SIZE 4 * (4096) //   4*4096 // 16384 *100  // 1024*4*4*2// 1024*4 *4   *2// Define the size of the data buffer
 
-#define TOTAL_DATA_ARRAY (480*640)/4096
+// #define TOTAL_DATA_ARRAY (480*640)/4096
 
 #define delay_time_tolerance_ms  (1/_60Hz)*1000
 libusb_device_handle *handle = NULL;
@@ -100,7 +100,7 @@ static struct libusb_transfer *create_transfer(libusb_device_handle *handle, siz
 
 
 
-static void CypressBulkCallback(struct libusb_transfer *transfer)
+ void CypressBulkCallback(struct libusb_transfer *transfer)
 {
 	// std::cout << "At the callback" << std::endl;
 	// the private data of transfer should contan Card pointer
@@ -206,6 +206,7 @@ int main()
     while (1)
     {
 		testGraphicCard.handle_events(delay_time_tolerance_ms);
+		usleep(  (delay_time_tolerance_ms/2) *1000);
 
     }
     return 0;

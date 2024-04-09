@@ -19,7 +19,7 @@
 #define VENDOR_ID 0x04b4    
 #define PRODUCT_ID 0x00f1    
 #define ENDPOINT_OUT 0x01
-#define  IMAGE_BUFFER_SIZE 10
+#define  IMAGE_BUFFER_SIZE 6
 //#define DEBUG 0
 class Card {
 	evdi_handle evdiHandle;
@@ -54,10 +54,10 @@ class Card {
 	void disconnect();
 
 	struct evdi_mode getMode() const;
-	void request_update();
+	int request_update();
 	void handle_events(int waiting_time);
 
-
+	fd_set rfds;
 	// for USB stuff
 	libusb_device_handle *handle=NULL;
 	struct libusb_context *usb_context = NULL;

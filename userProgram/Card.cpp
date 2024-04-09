@@ -107,7 +107,7 @@ Card::Card()
 	// 	// main_window = cimg_library::CImgDisplay(img, "Random Data", 0);
 	// 	frame = 0;
 	// #endif
-}
+		}
 Card::Card(int device)
 	: evdiHandle(evdi_open(device))
 {
@@ -116,7 +116,7 @@ Card::Card(int device)
 	// 			      std::to_string(device) +
 	// 			      "does not exists!");
 	// }
-
+	
 	memset(&eventContext, 0, sizeof(eventContext));
 
 	//m_modeHandler = nullptr;
@@ -201,7 +201,7 @@ struct evdi_mode Card::getMode() const
 
 void Card::handle_events(int waiting_time)
 {
-	fd_set rfds;
+
 	struct timeval tv;
 	FD_ZERO(&rfds);
 	int fd = evdi_get_event_ready(evdiHandle);
@@ -209,23 +209,28 @@ void Card::handle_events(int waiting_time)
 	tv.tv_sec = 0;
 	tv.tv_usec = waiting_time * 1000;
 
-	request_update();
 
-	if (select(fd + 1, &rfds, NULL, NULL, &tv)) {
+	request_update();
+	//std::cout <<"The return result is " << res <<" "<< std::endl;
+
+	if ( select(fd + 1, &rfds, NULL, NULL, &tv)) {
 		evdi_handle_events(evdiHandle, &eventContext);
 	}
 }
 
-void Card::request_update()
+int Card::request_update()
 {
 	if (buffer_requested) {
-		return;
+		return -3;
 	}
 
 	// tru to get the lock
 	// std::cout << "waiting for the lock" << std::endl;
 	this->usb_bulk_buffer_deque_mutex.lock();
 	// std::cout << "acquire for the lock" << std::endl;
+
+	// grab the first in deque 
+
 	for (auto &i : buffers) {
 		//if (i.use_count() == 1 && i->inUSBQueue == false) {
 		if ( i->inUSBQueue == false) {
@@ -237,16 +242,36 @@ void Card::request_update()
 
 	// std::cout<< "release for the lock " << std::endl;
 	if (!buffer_requested) {
-		std::cout <<"cannot find!" <<std::endl;
-		return;
+		// std::cout <<"cannot find!" <<std::endl;
+		if(buffers.size() == 0){
+			return -2;
+		}else {
+			// std::cout <<"Buffer full" <<std::endl;
+			// // repalce with the top
+			this->usb_bulk_buffer_deque_mutex.lock();
+			std::shared_ptr<Buffer> firstInQueue = usb_bulk_buffer_deque.front();
+			usb_bulk_buffer_deque.pop_front();
+			buffer_requested = firstInQueue;
+			this->usb_bulk_buffer_deque_mutex.unlock();
+
+
+			// return -1;
+		}
 	}
+
+
+
 	// std::cout <<"start waiting for update" << std::endl;
 	bool update_ready =
 		evdi_request_update(evdiHandle, buffer_requested->buffer.id);
 	// std::cout <<"after waiting for update" << std::endl;
 	if (update_ready) {
 		grab_pixels();
+		return 0;
+	}else{
+		return -5;
 	}
+
 }
 
 void Card::grab_pixels()
@@ -291,8 +316,16 @@ void Card::grab_pixels()
 				int CompressImage = RGBTo16Bit(((unsigned char *)b.buffer)[offset + 2],((unsigned char *)b.buffer)[offset + 1],((unsigned char *)b.buffer)[offset]);
 				// ((unsigned char *)b.buffer)[offset+0]  = 0x0;
 				// ((unsigned char *)b.buffer)[offset+1] = 0x0; 
+				// int CompressImage;
+				// if(i < mode.height/2){
+				// 	CompressImage = RGBTo16Bit(255,0,0);
+				// }else{
+				// 	CompressImage = RGBTo16Bit(0,0,255);
+				// }
 				((unsigned char *)b.buffer)[offset+2] = (CompressImage >> 8) & 0xFF;
 				((unsigned char *)b.buffer)[offset+3] = (CompressImage ) & 0xFF;
+
+
 			}
 		}
 	}
