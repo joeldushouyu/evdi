@@ -11,13 +11,13 @@
 // namespace py = pybind11;
 
 static 	unsigned int RGBTo16Bit(unsigned char R, unsigned G, unsigned B){
-
-    R /= 16;
-    G /= 16;
-    B /= 16;
+	//RGB 565
+    R = R>>3;
+    G =G >> 2;
+    B  = B>>3;
     // now, try to combine
     unsigned int returnResult;
-    return returnResult = (0 << 12) | (R << 8 & 0xF00) | (G << 4 & 0xF0) | (B & 0xF);
+    return returnResult =  (R << 11 & 0xF800) | (G << 5 & 0x7E0) | (B & 0x1F);
 
 }
 
@@ -36,9 +36,9 @@ void card_C_mode_handler(struct evdi_mode mode, void *user_data)
 	// logging.attr("info")("Got mode_changed signal.");
 	Card *card = reinterpret_cast<Card *>(user_data);
 	//printf("width %d height %d bits_per_pixel %d", mode.width, mode.height, mode.bits_per_pixel);
-	std::cout << " width " << mode.width << "height " << mode.height
-		  << "bpp " << mode.bits_per_pixel << "refresh rate "
-		  << mode.refresh_rate << std::endl;
+	// std::cout << " width " << mode.width << "height " << mode.height
+	// 	  << "bpp " << mode.bits_per_pixel << "refresh rate "
+	// 	  << mode.refresh_rate << std::endl;
 	assert(card);
 
 	card->setMode(mode);
@@ -223,9 +223,9 @@ void Card::request_update()
 	}
 
 	// tru to get the lock
-	std::cout << "waiting for the lock" << std::endl;
+	// std::cout << "waiting for the lock" << std::endl;
 	this->usb_bulk_buffer_deque_mutex.lock();
-	std::cout << "acquire for the lock" << std::endl;
+	// std::cout << "acquire for the lock" << std::endl;
 	for (auto &i : buffers) {
 		//if (i.use_count() == 1 && i->inUSBQueue == false) {
 		if ( i->inUSBQueue == false) {
@@ -235,15 +235,15 @@ void Card::request_update()
 	}
 	this->usb_bulk_buffer_deque_mutex.unlock();
 
-	std::cout<< "release for the lock " << std::endl;
+	// std::cout<< "release for the lock " << std::endl;
 	if (!buffer_requested) {
 		std::cout <<"cannot find!" <<std::endl;
 		return;
 	}
-	std::cout <<"start waiting for update" << std::endl;
+	// std::cout <<"start waiting for update" << std::endl;
 	bool update_ready =
 		evdi_request_update(evdiHandle, buffer_requested->buffer.id);
-	std::cout <<"after waiting for update" << std::endl;
+	// std::cout <<"after waiting for update" << std::endl;
 	if (update_ready) {
 		grab_pixels();
 	}
@@ -258,9 +258,9 @@ void Card::grab_pixels()
 	evdi_grab_pixels(evdiHandle, buffer_requested->buffer.rects,
 			 &buffer_requested->buffer.rect_count);
 	
-	std::cout << " new frame:   width " << mode.width << "height "
-		  << mode.height << "bpp " << mode.bits_per_pixel
-		  << "refresh rate " << mode.refresh_rate << std::endl;
+	// std::cout << " new frame:   width " << mode.width << "height "
+	// 	  << mode.height << "bpp " << mode.bits_per_pixel
+	// 	  << "refresh rate " << mode.refresh_rate << std::endl;
 
 	// // now, process the data 
 	// // only for 16 bit mode to compress the data
@@ -287,9 +287,10 @@ void Card::grab_pixels()
 				};
 				// img.draw_point(k, i, color);
 				//TODO: this is monitor specific
-				int CompressImage = RGBTo16Bit(color[2],color[1] ,color[0]);
-				((unsigned char *)b.buffer)[offset+0]  = 0x0;
-				((unsigned char *)b.buffer)[offset+1] = 0x0; 
+				// int CompressImage = RGBTo16Bit(color[2],color[1] ,color[0]);
+				int CompressImage = RGBTo16Bit(((unsigned char *)b.buffer)[offset + 2],((unsigned char *)b.buffer)[offset + 1],((unsigned char *)b.buffer)[offset]);
+				// ((unsigned char *)b.buffer)[offset+0]  = 0x0;
+				// ((unsigned char *)b.buffer)[offset+1] = 0x0; 
 				((unsigned char *)b.buffer)[offset+2] = (CompressImage >> 8) & 0xFF;
 				((unsigned char *)b.buffer)[offset+3] = (CompressImage ) & 0xFF;
 			}

@@ -17,6 +17,8 @@
 #define DATA_SIZE 4 * (4096) //   4*4096 // 16384 *100  // 1024*4*4*2// 1024*4 *4   *2// Define the size of the data buffer
 
 #define TOTAL_DATA_ARRAY (480*640)/4096
+
+#define delay_time_tolerance_ms  (1/_60Hz)*1000
 libusb_device_handle *handle = NULL;
 
 struct libusb_context *usb_context;
@@ -100,7 +102,7 @@ static struct libusb_transfer *create_transfer(libusb_device_handle *handle, siz
 
 static void CypressBulkCallback(struct libusb_transfer *transfer)
 {
-	std::cout << "At the callback" << std::endl;
+	// std::cout << "At the callback" << std::endl;
 	// the private data of transfer should contan Card pointer
 	Card *c = static_cast<Card *>(transfer->user_data);
 	// acquire the queue lock
@@ -113,7 +115,7 @@ static void CypressBulkCallback(struct libusb_transfer *transfer)
 
 		libusb_submit_transfer(transfer);
 	} else {
-		std::cout << "at relase case" << std::endl;
+		// std::cout << "at relase case" << std::endl;
 		//mark buffer as free
 		// it should not in deque, but in the buffer
 		bool hasFound = false;
@@ -122,7 +124,7 @@ static void CypressBulkCallback(struct libusb_transfer *transfer)
 			if (p->buffer.buffer == transfer->buffer) {
 				p->inUSBQueue = false;
 				hasFound = true;
-				std::cout << "Trying to release" << std::endl;
+				// std::cout << "Trying to release" << std::endl;
 				break;
 			}
 		}
@@ -170,12 +172,12 @@ void usb_event_thread(Card *testGraphicCard)
 		buf->transfer = libusb_alloc_transfer(0);
 		buf->transfer->buffer = static_cast<unsigned char *> (buf->buffer.buffer);
 		libusb_fill_bulk_transfer(buf->transfer, handle, ENDPOINT_OUT,
-		buf->transfer->buffer, buf->bufferSizeInByte,  CypressBulkCallback, testGraphicCard,  5000);
+		buf->transfer->buffer, buf->bufferSizeInByte,  CypressBulkCallback, testGraphicCard,  delay_time_tolerance_ms);
 
     }
 	// start sending
 
-	for(unsigned int i = 0; i < IMAGE_BUFFER_SIZE/2; i++){
+	for(unsigned int i = 0; i < 2; i++){
 		Buffer* buf = testGraphicCard->buffers.at(i).get();
 		buf->inUSBQueue = true;
         libusb_submit_transfer(buf->transfer); // start the intitial transfer
@@ -203,7 +205,7 @@ int main()
     int res;
     while (1)
     {
-		testGraphicCard.handle_events(1000);
+		testGraphicCard.handle_events(delay_time_tolerance_ms);
 
     }
     return 0;

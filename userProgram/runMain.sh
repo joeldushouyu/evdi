@@ -1,3 +1,3 @@
 #!/bin/sh
 sudo renice -n -20 $$
-./main
+./main | ts '[%Y-%m-%d %H:%M:%S]'
