@@ -177,7 +177,7 @@ void usb_event_thread(Card *testGraphicCard)
     }
 	// start sending
 
-	for(unsigned int i = 0; i < 2; i++){
+	for(unsigned int i = 0; i < IMAGE_BUFFER_SIZE/4; i++){
 		Buffer* buf = testGraphicCard->buffers.at(i).get();
 		buf->inUSBQueue = true;
         libusb_submit_transfer(buf->transfer); // start the intitial transfer
