@@ -38,7 +38,7 @@ main.o: main.cpp
 	$(CXX) $(CXXFLAGS)  -c $<  
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -O2 -c $<  
+	$(CXX) $(CXXFLAGS) -O3 -c $<  
 
 
 
