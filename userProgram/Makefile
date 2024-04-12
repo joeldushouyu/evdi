@@ -33,8 +33,12 @@ clean:
 	rm -rf $(OBJS)
 	rm -rf main
 	rm -rf qtTest
+
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS)  -c $<  
+
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $<  
+	$(CXX) $(CXXFLAGS) -O2 -c $<  
 
 
 
