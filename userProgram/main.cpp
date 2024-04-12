@@ -165,10 +165,12 @@ void usb_event_thread(Card *testGraphicCard)
 		;
 	}
     for (unsigned int i = 0; i <IMAGE_BUFFER_SIZE; i++)
-    {
+    {	
+
         // struct libusb_transfer *transfer = create_transfer(handle, (640*480*4));
 
 		Buffer* buf = testGraphicCard->buffers.at(i).get();
+		std::cout << "image size is " << buf->bufferSizeInByte << " "<<std::endl;
 		buf->transfer = libusb_alloc_transfer(0);
 		buf->transfer->buffer = static_cast<unsigned char *> (buf->buffer.buffer);
 		libusb_fill_bulk_transfer(buf->transfer, handle, ENDPOINT_OUT,
@@ -177,7 +179,7 @@ void usb_event_thread(Card *testGraphicCard)
     }
 	// start sending
 
-	for(unsigned int i = 0; i < IMAGE_BUFFER_SIZE/4; i++){
+	for(unsigned int i = 0; i < 2; i++){
 		Buffer* buf = testGraphicCard->buffers.at(i).get();
 		buf->inUSBQueue = true;
         libusb_submit_transfer(buf->transfer); // start the intitial transfer
@@ -194,10 +196,10 @@ int main()
 	Card testGraphicCard;
 	// TODO: need to be from the analog of
 	///https://github.com/linuxhw/EDID/tree/master/Analog
-	std::string edidString = readEdidInfo("640-480-2.bin");
+	std::string edidString = readEdidInfo("1920-1080.bin");
 	//testGraphicCard.claimCypressUSBDevice();
-	testGraphicCard.connect(edidString.data(), edidString.size(), 640 * 480,
-				640 * 480 * 60);
+	testGraphicCard.connect(edidString.data(), edidString.size(), 1920 * 1080,
+				1920 * 1080 * 60);
 
 
 	std::thread usb_thread{usb_event_thread, &testGraphicCard};
@@ -206,7 +208,7 @@ int main()
     while (1)
     {
 		testGraphicCard.handle_events(delay_time_tolerance_ms);
-		usleep(  (delay_time_tolerance_ms/2) *1000);
+		usleep(  (delay_time_tolerance_ms*2) *1000);
 
     }
     return 0;

@@ -19,7 +19,7 @@
 #define VENDOR_ID 0x04b4    
 #define PRODUCT_ID 0x00f1    
 #define ENDPOINT_OUT 0x01
-#define  IMAGE_BUFFER_SIZE 6
+#define  IMAGE_BUFFER_SIZE 4
 //#define DEBUG 0
 class Card {
 	evdi_handle evdiHandle;
