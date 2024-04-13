@@ -25,11 +25,31 @@ void card_C_mode_handler(struct evdi_mode mode, void *user_data)
 	card->setMode(mode);
 	card->makeBuffers(2);
 
-	if (!card->mode_handler.is_none()) {
+	if (card->mode_handler) {
 		card->mode_handler(mode);
 	}
 
 	card->request_update();
+}
+
+void card_C_cursor_set_handler(struct evdi_cursor_set cursor_set, void *user_data)
+{
+	py::module logging = py::module::import("logging");
+	logging.attr("debug")("Got cursor set event.");
+	Card *card = reinterpret_cast<Card *>(user_data);
+
+	assert(card);
+
+	free(cursor_set.buffer);
+}
+
+void card_C_cursor_move_handler(struct evdi_cursor_move, void *user_data)
+{
+	py::module logging = py::module::import("logging");
+	logging.attr("debug")("Got cursor move event.");
+	Card *card = reinterpret_cast<Card *>(user_data);
+
+	assert(card);
 }
 
 void Card::setMode(struct evdi_mode mode)
@@ -72,6 +92,8 @@ Card::Card(int device)
 
 	eventContext.mode_changed_handler = &card_C_mode_handler;
 	eventContext.update_ready_handler = &default_update_ready_handler;
+	eventContext.cursor_set_handler = &card_C_cursor_set_handler;
+	eventContext.cursor_move_handler = &card_C_cursor_move_handler;
 	eventContext.dpms_handler = dpms_handler;
 	eventContext.user_data = this;
 
@@ -167,3 +189,9 @@ void Card::grab_pixels()
 
 	request_update();
 }
+
+void Card::enableCursorEvents(bool enable)
+{
+	evdi_enable_cursor_events(evdiHandle, enable);
+}
+

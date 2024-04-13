@@ -211,7 +211,7 @@ int evdi_gem_fault(struct vm_fault *vmf)
 
 	page_offset = (vmf->address - vma->vm_start) >> PAGE_SHIFT;
 
-	if (!obj->pages || page_offset >= num_pages)
+	if (!obj->pages || page_offset >= (unsigned long)num_pages)
 		return VM_FAULT_SIGBUS;
 
 	page = obj->pages[page_offset];
@@ -401,6 +401,13 @@ int evdi_gem_mmap(struct drm_file *file,
 	ret = evdi_pin_pages(gobj);
 	if (ret)
 		goto out;
+
+	/* Don't allow imported objects to be mapped */
+	if (obj->import_attach) {
+		EVDI_WARN("Don't allow imported objects to be mapped: owner: %s",  obj->import_attach->dmabuf->owner->name);
+		ret = -EINVAL;
+		goto out;
+	}
 
 	ret = drm_gem_create_mmap_offset(obj);
 	if (ret)

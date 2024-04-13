@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 # Copyright (c) 2023 DisplayLink (UK) Ltd.
 
-evdi_version='1.14.2'
+evdi_version='1.14.4'
 
 EVDI_DIR=$(dirname "${BASH_SOURCE[0]}")
 EVDI_REBOOT_RATIONALE=
@@ -26,10 +26,9 @@ copy_evdi_make_log()
 enroll_secureboot_key()
 {
   if command -v mokutil >/dev/null && mokutil --sb-state | grep -i "SecureBoot enabled" > /dev/null; then
-    local results
-    results=$(update-secureboot-policy --enroll-key 2> /dev/null) || return
+    update-secureboot-policy --enroll-key 2> /dev/null || return
 
-    if [[ -z $EVDI_REBOOT_RATIONALE && ! $results == *"Nothing to do."* ]]; then
+    if [[ -z $EVDI_REBOOT_RATIONALE && $(mokutil --list-new | wc -l) -gt 0 ]]; then
       EVDI_REBOOT_RATIONALE="SecureBoot key was enrolled during the installation."
     fi
   fi
