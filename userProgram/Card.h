@@ -19,7 +19,7 @@
 #define VENDOR_ID 0x04b4    
 #define PRODUCT_ID 0x00f1    
 #define ENDPOINT_OUT 0x01
-#define  IMAGE_BUFFER_SIZE 4
+#define  IMAGE_BUFFER_SIZE 3
 //#define DEBUG 0
 class Card {
 	evdi_handle evdiHandle;
@@ -38,6 +38,11 @@ class Card {
 	friend void default_update_ready_handler(int buffer_to_be_updated,
 						 void *user_data);
 	friend void card_C_mode_handler(struct evdi_mode mode, void *user_data);
+	friend void card_C_cursor_set_handler(struct evdi_cursor_set cursor_set,
+				   void *user_data);
+	friend void card_C_cursor_move_handler(struct evdi_cursor_move cursor_move,
+				   void *user_data);
+
 
     public:
 	std::vector<std::shared_ptr<Buffer> > buffers;
@@ -55,6 +60,7 @@ class Card {
 
 	struct evdi_mode getMode() const;
 	int request_update();
+	void enableCursorEvents(bool enable);
 	void handle_events(int waiting_time);
 
 	fd_set rfds;

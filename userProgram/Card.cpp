@@ -29,6 +29,27 @@ void default_update_ready_handler(int buffer_to_be_updated, void *user_data)
 	card_ptr->grab_pixels();
 }
 
+
+void card_C_cursor_set_handler(struct evdi_cursor_set cursor_set, void *user_data)
+{
+	// py::module logging = py::module::import("logging");
+	// logging.attr("debug")("Got cursor set event.");
+	Card *card = reinterpret_cast<Card *>(user_data);
+
+	assert(card);
+
+	free(cursor_set.buffer);
+}
+
+void card_C_cursor_move_handler(struct evdi_cursor_move, void *user_data)
+{
+	// py::module logging = py::module::import("logging");
+	// logging.attr("debug")("Got cursor move event.");
+	Card *card = reinterpret_cast<Card *>(user_data);
+
+	assert(card);
+}
+
 void card_C_mode_handler(struct evdi_mode mode, void *user_data)
 {
 	// py::module logging = py::module::import("logging");
@@ -95,6 +116,8 @@ Card::Card()
 
 	eventContext.mode_changed_handler = &card_C_mode_handler;
 	eventContext.update_ready_handler = &default_update_ready_handler;
+	eventContext.cursor_set_handler = &card_C_cursor_set_handler;
+	eventContext.cursor_move_handler = &card_C_cursor_move_handler;
 	eventContext.dpms_handler = dpms_handler;
 	eventContext.user_data = this;
 
@@ -122,6 +145,8 @@ Card::Card(int device)
 
 	eventContext.mode_changed_handler = &card_C_mode_handler;
 	eventContext.update_ready_handler = &default_update_ready_handler;
+	eventContext.cursor_set_handler = &card_C_cursor_set_handler;
+	eventContext.cursor_move_handler = &card_C_cursor_move_handler;
 	eventContext.dpms_handler = dpms_handler;
 	eventContext.user_data = this;
 
@@ -241,14 +266,14 @@ int Card::request_update()
 		} else {
 			// std::cout <<"Buffer full" <<std::endl;
 			// // repalce with the top
-			this->usb_bulk_buffer_deque_mutex.lock();
-			std::shared_ptr<Buffer> firstInQueue =
-				usb_bulk_buffer_deque.front();
-			usb_bulk_buffer_deque.pop_front();
-			buffer_requested = firstInQueue;
-			this->usb_bulk_buffer_deque_mutex.unlock();
+			// this->usb_bulk_buffer_deque_mutex.lock();
+			// std::shared_ptr<Buffer> firstInQueue =
+			// 	usb_bulk_buffer_deque.front();
+			// usb_bulk_buffer_deque.pop_front();
+			// buffer_requested = firstInQueue;
+			// this->usb_bulk_buffer_deque_mutex.unlock();
 
-			// return -1;
+			return -1;
 		}
 	}
 
@@ -409,4 +434,8 @@ void Card::grab_pixels()
 	buffer_requested = nullptr;
 
 	request_update();
+}
+void Card::enableCursorEvents(bool enable)
+{
+	evdi_enable_cursor_events(evdiHandle, enable);
 }

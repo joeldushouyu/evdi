@@ -110,7 +110,7 @@ static struct libusb_transfer *create_transfer(libusb_device_handle *handle, siz
 
 	if (c->usb_bulk_buffer_deque.empty()) {
 		// empty!!!
-		std::cout << "ERROR: empty queue" << std::endl;
+		//std::cout << "ERROR: empty queue" << std::endl;
 		// try recovery by continue submit the current
 
 		libusb_submit_transfer(transfer);
@@ -200,6 +200,7 @@ int main()
 	//testGraphicCard.claimCypressUSBDevice();
 	testGraphicCard.connect(edidString.data(), edidString.size(), 1920 * 1080,
 				1920 * 1080 * 60);
+	// testGraphicCard.enableCursorEvents(true);
 
 
 	std::thread usb_thread{usb_event_thread, &testGraphicCard};
@@ -208,7 +209,7 @@ int main()
     while (1)
     {
 		testGraphicCard.handle_events(delay_time_tolerance_ms);
-		usleep(  (delay_time_tolerance_ms*2) *1000);
+		usleep(  (delay_time_tolerance_ms/2) *1000);
 
     }
     return 0;
