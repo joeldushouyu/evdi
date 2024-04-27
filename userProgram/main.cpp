@@ -18,7 +18,7 @@
 
 // #define TOTAL_DATA_ARRAY (480*640)/4096
 
-#define delay_time_tolerance_ms  (1/_60Hz)*1000
+#define delay_time_tolerance_ms  (1/_30HZ)*1000
 libusb_device_handle *handle = NULL;
 
 struct libusb_context *usb_context;
@@ -174,7 +174,7 @@ void usb_event_thread(Card *testGraphicCard)
 		buf->transfer = libusb_alloc_transfer(0);
 		buf->transfer->buffer = static_cast<unsigned char *> (buf->buffer.buffer);
 		libusb_fill_bulk_transfer(buf->transfer, handle, ENDPOINT_OUT,
-		buf->transfer->buffer, buf->bufferSizeInByte,  CypressBulkCallback, testGraphicCard,  delay_time_tolerance_ms);
+		buf->transfer->buffer, buf->bufferSizeInByte,  CypressBulkCallback, testGraphicCard,  delay_time_tolerance_ms/2);
 
     }
 	// start sending
@@ -209,7 +209,7 @@ int main()
     while (1)
     {
 		testGraphicCard.handle_events(delay_time_tolerance_ms);
-		usleep(  (delay_time_tolerance_ms/2) *1000);
+		usleep(  (delay_time_tolerance_ms/8) *1000);
 
     }
     return 0;
