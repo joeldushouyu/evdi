@@ -14,7 +14,7 @@ CFLAGS := -I../module -std=gnu99 -fPIC -D_FILE_OFFSET_BITS=64 $(CFLAGS) $$($(PKG
 LIBVER := 1.14.14
 LIBABI := 1
 
-PREFIX ?= /usr/local
+PREFIX ?= /usr
 LIBDIR ?= $(PREFIX)/lib
 
 default: libevdi.so.$(LIBVER)
