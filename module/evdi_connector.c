@@ -184,7 +184,7 @@ int evdi_connector_init(struct drm_device *dev, struct drm_encoder *encoder)
 	struct drm_connector *connector;
 	struct evdi_device *evdi = dev->dev_private;
 
-	connector = kzalloc(sizeof(struct drm_connector), GFP_KERNEL);
+	connector = kzalloc_obj(*connector, GFP_KERNEL);
 	if (!connector)
 		return -ENOMEM;
 

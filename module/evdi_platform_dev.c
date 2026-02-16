@@ -59,7 +59,7 @@ int evdi_platform_device_probe(struct platform_device *pdev)
 	struct evdi_platform_device_data *data;
 
 	EVDI_CHECKPT();
-	data = kzalloc(sizeof(struct evdi_platform_device_data), GFP_KERNEL);
+	data = kzalloc_obj(*data, GFP_KERNEL);
 	if (!data)
 		return -ENOMEM;
 #if KERNEL_VERSION(5, 9, 0) <= LINUX_VERSION_CODE || defined(EL8)

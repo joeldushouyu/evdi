@@ -51,7 +51,7 @@ struct drm_encoder *evdi_encoder_init(struct drm_device *dev)
 	struct drm_encoder *encoder;
 	int ret = 0;
 
-	encoder = kzalloc(sizeof(struct drm_encoder), GFP_KERNEL);
+	encoder = kzalloc_obj(*encoder, GFP_KERNEL);
 	if (!encoder)
 		goto err;
 

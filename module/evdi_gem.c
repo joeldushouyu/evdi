@@ -99,7 +99,7 @@ struct evdi_gem_object *evdi_gem_alloc_object(struct drm_device *dev,
 {
 	struct evdi_gem_object *obj;
 
-	obj = kzalloc(sizeof(*obj), GFP_KERNEL);
+	obj = kzalloc_obj(*obj, GFP_KERNEL);
 	if (obj == NULL)
 		return NULL;
 
